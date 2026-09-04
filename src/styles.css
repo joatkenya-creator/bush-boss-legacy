@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 2px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -32,61 +32,81 @@
   --color-earth-foreground: var(--earth-foreground);
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
-  --color-olive: var(--olive);
-  --color-olive-foreground: var(--olive-foreground);
+  --color-olive: var(--forest);
+  --color-olive-foreground: var(--cream);
+  --color-forest: var(--forest);
+  --color-clay: var(--clay);
+  --color-stone: var(--stone);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
-  --font-display: "Archivo Black", "Arial Black", sans-serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Work Sans", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0px;
 
-  /* Core earthy cinematic palette */
-  --ink: oklch(0.16 0.012 60);
-  --background: oklch(0.155 0.012 60);
-  --foreground: oklch(0.94 0.018 85);
-  --card: oklch(0.2 0.014 62);
-  --card-foreground: oklch(0.94 0.018 85);
-  --popover: oklch(0.2 0.014 62);
-  --popover-foreground: oklch(0.94 0.018 85);
+  /* Heritage editorial palette */
+  --ink: oklch(0.19 0.006 100); /* #171714 obsidian */
+  --forest: oklch(0.33 0.03 158); /* #24352A deep forest */
+  --gold: oklch(0.65 0.088 80); /* #B28A4A burnished gold */
+  --gold-foreground: oklch(0.19 0.006 100);
+  --clay: oklch(0.48 0.087 40); /* #8B4F3D terracotta */
+  --stone: oklch(0.79 0.021 85); /* #C8BFAE */
+  --cream: oklch(0.94 0.021 85); /* #F3EBDD warm ivory */
 
-  --primary: oklch(0.74 0.114 82);
-  --primary-foreground: oklch(0.16 0.012 60);
-  --secondary: oklch(0.28 0.03 60);
-  --secondary-foreground: oklch(0.94 0.018 85);
-  --muted: oklch(0.24 0.02 62);
-  --muted-foreground: oklch(0.72 0.022 80);
-  --accent: oklch(0.42 0.055 130);
-  --accent-foreground: oklch(0.95 0.02 90);
-  --destructive: oklch(0.52 0.16 30);
+  --background: oklch(0.94 0.021 85);
+  --foreground: oklch(0.19 0.006 100);
+  --card: oklch(0.965 0.014 85);
+  --card-foreground: oklch(0.19 0.006 100);
+  --popover: oklch(0.965 0.014 85);
+  --popover-foreground: oklch(0.19 0.006 100);
+
+  --primary: oklch(0.19 0.006 100);
+  --primary-foreground: oklch(0.94 0.021 85);
+  --secondary: oklch(0.88 0.02 85);
+  --secondary-foreground: oklch(0.19 0.006 100);
+  --muted: oklch(0.9 0.018 85);
+  --muted-foreground: oklch(0.44 0.012 75);
+  --accent: oklch(0.33 0.03 158);
+  --accent-foreground: oklch(0.94 0.021 85);
+  --destructive: oklch(0.48 0.14 30);
   --destructive-foreground: oklch(0.96 0.01 85);
-  --border: oklch(0.32 0.022 65);
-  --input: oklch(0.32 0.022 65);
-  --ring: oklch(0.74 0.114 82);
+  --border: oklch(0.81 0.021 85);
+  --input: oklch(0.81 0.021 85);
+  --ring: oklch(0.65 0.088 80);
 
-  --earth: oklch(0.36 0.058 55);
-  --earth-foreground: oklch(0.94 0.018 85);
-  --gold: oklch(0.74 0.114 82);
-  --gold-foreground: oklch(0.16 0.012 60);
-  --olive: oklch(0.38 0.055 132);
-  --olive-foreground: oklch(0.95 0.02 90);
-  --cream: oklch(0.94 0.022 88);
+  --earth: oklch(0.48 0.087 40);
+  --earth-foreground: oklch(0.94 0.021 85);
 
   --gradient-veil: linear-gradient(
     to top,
-    oklch(0.155 0.012 60) 2%,
-    oklch(0.155 0.012 60 / 0.72) 42%,
-    oklch(0.155 0.012 60 / 0.35) 100%
+    oklch(0.19 0.006 100) 4%,
+    oklch(0.19 0.006 100 / 0.74) 44%,
+    oklch(0.19 0.006 100 / 0.3) 100%
   );
   --gradient-earth: linear-gradient(
-    135deg,
-    oklch(0.24 0.03 55),
-    oklch(0.19 0.02 130)
+    150deg,
+    oklch(0.29 0.02 120),
+    oklch(0.2 0.012 60)
   );
-  --shadow-deep: 0 40px 80px -32px oklch(0 0 0 / 0.8);
+  --shadow-deep: 0 40px 80px -32px oklch(0 0 0 / 0.45);
   --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Dark editorial sections — token overrides scoped to a wrapper. */
+.on-dark {
+  --background: var(--ink);
+  --foreground: var(--cream);
+  --card: oklch(0.23 0.008 100);
+  --card-foreground: var(--cream);
+  --muted-foreground: oklch(0.76 0.016 85);
+  --border: oklch(0.34 0.012 90);
+  --input: oklch(0.34 0.012 90);
+  --secondary: oklch(0.26 0.01 100);
+  --secondary-foreground: var(--cream);
+  color: var(--cream);
+  background-color: var(--ink);
 }
 
 @layer base {
@@ -110,9 +130,9 @@
   h3,
   .display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    line-height: 0.94;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
   }
 
   ::selection {
@@ -129,7 +149,7 @@
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: 0.06;
+  opacity: 0.07;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -137,18 +157,14 @@
 @utility eyebrow {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 0.34em;
-  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  font-size: 0.66rem;
   font-weight: 500;
   color: var(--gold);
 }
 
 @utility rule-gold {
-  background: linear-gradient(
-    to right,
-    var(--gold),
-    transparent
-  );
+  background: linear-gradient(to right, var(--gold), transparent);
   height: 1px;
 }
 
@@ -165,6 +181,15 @@
   transform: none;
 }
 
+@utility image-mask {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.1s var(--ease-cinematic);
+}
+
+@utility image-mask-in {
+  clip-path: inset(0 0 0 0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -172,6 +197,10 @@
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .image-mask {
+    clip-path: none;
     transition: none;
   }
 }
