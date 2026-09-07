@@ -13,10 +13,11 @@ Stennett, known in music as Gangunjah Nevadye.
 ## Running it
 
 ```bash
-bun install       # or: npm install
-bun run dev       # http://localhost:3000
-bun run build     # production build into .output/
-bun run lint
+npm install       # installs exactly what package-lock.json pins
+npm run dev       # http://localhost:3000
+npm run build     # production build into .output/
+npm run lint
+npm run check:theme  # guards theme contexts (see styles.css)
 ```
 
 No configuration is required to run it. There is one optional setting,
