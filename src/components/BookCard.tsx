@@ -37,13 +37,13 @@ export function BookCard({
           />
         ) : (
           <div
-            className="grain relative flex aspect-[2/3] flex-col justify-between overflow-hidden border border-border p-6 transition-transform duration-700 ease-[var(--ease-cinematic)] group-hover:-translate-y-2"
+            className="on-dark grain relative flex aspect-[2/3] flex-col justify-between overflow-hidden border border-border p-6 transition-transform duration-700 ease-[var(--ease-cinematic)] group-hover:-translate-y-2"
             style={{ background: "var(--gradient-earth)" }}
           >
             <span className="grain-overlay" aria-hidden="true" />
             <div className="flex items-start justify-between gap-3">
               <span className="eyebrow">No. {String(index + 1).padStart(2, "0")}</span>
-              <span className="text-right text-[0.55rem] uppercase leading-relaxed tracking-[0.2em] text-stone/60">
+              <span className="text-right text-[0.55rem] uppercase leading-relaxed tracking-[0.2em] text-muted-foreground">
                 Cover
                 <br />
                 to follow
@@ -51,8 +51,8 @@ export function BookCard({
             </div>
             <div>
               <span className="mb-4 block h-px w-12 bg-gold" />
-              <h3 className="display text-2xl leading-tight text-cream">{book.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone/80">{book.subtitle}</p>
+              <h3 className="display text-2xl leading-tight text-foreground">{book.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{book.subtitle}</p>
             </div>
             <span className="text-[0.58rem] uppercase tracking-[0.24em] text-gold-ink">
               {BRAND.author}

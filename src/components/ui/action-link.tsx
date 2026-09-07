@@ -15,6 +15,11 @@ const sizes: Record<Size, string> = {
   lg: "px-9 py-5 text-[0.72rem]",
 };
 
+/**
+ * Variants read from theme tokens only, so a link stays legible on whichever
+ * ground it lands on (`.on-dark` / `.on-light`). Never hard-code cream or ink
+ * here — that is what made the outline CTA invisible on the maroon section.
+ */
 const variants: Record<Variant, string> = {
   solid: "bg-gold text-gold-foreground hover:bg-cream hover:text-ink",
   outline: "border border-border text-foreground hover:border-gold hover:text-gold-ink",

@@ -56,7 +56,7 @@ export function SiteHeader() {
       <div className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-5 sm:px-8">
         <Link
           to="/"
-          className="display text-sm uppercase tracking-[0.26em] text-cream transition-colors hover:text-gold-ink sm:text-base"
+          className="display text-sm uppercase tracking-[0.26em] text-foreground transition-colors hover:text-gold-ink sm:text-base"
         >
           {BRAND.name}
         </Link>
@@ -69,7 +69,7 @@ export function SiteHeader() {
                   to={link.to}
                   activeOptions={{ exact: link.to === "/" }}
                   activeProps={{ className: "!text-gold-ink" }}
-                  className="relative text-[0.62rem] uppercase tracking-[0.26em] text-stone/80 transition-colors hover:text-gold-ink"
+                  className="relative text-[0.62rem] uppercase tracking-[0.26em] text-muted-foreground transition-colors hover:text-gold-ink"
                 >
                   {link.label}
                 </Link>
@@ -87,7 +87,7 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="site-menu"
-            className="flex size-11 items-center justify-center border border-stone/30 text-cream transition-colors hover:border-gold hover:text-gold-ink xl:hidden"
+            className="flex size-11 items-center justify-center border border-border text-foreground transition-colors hover:border-gold hover:text-gold-ink xl:hidden"
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <span aria-hidden="true" className="relative block h-3 w-5">
@@ -120,10 +120,10 @@ export function SiteHeader() {
         <nav aria-label="Site" className="flex-1">
           <ul>
             {navLinks.map((link, i) => (
-              <li key={link.label} className="border-b border-stone/15">
+              <li key={link.label} className="border-b border-border/60">
                 <Link
                   to={link.to}
-                  className="flex items-baseline gap-5 py-5 text-cream transition-colors hover:text-gold-ink"
+                  className="flex items-baseline gap-5 py-5 text-foreground transition-colors hover:text-gold-ink"
                 >
                   <span className="text-[0.6rem] tracking-[0.24em] text-gold-ink">
                     {String(i + 1).padStart(2, "0")}
@@ -139,7 +139,7 @@ export function SiteHeader() {
           <ActionLink href={LINKS.booking} className="w-full">
             Book The Bush Boss
           </ActionLink>
-          <p className="text-center text-[0.62rem] uppercase tracking-[0.24em] text-stone/60">
+          <p className="text-center text-[0.62rem] uppercase tracking-[0.24em] text-muted-foreground">
             {BRAND.tagline}
           </p>
         </div>

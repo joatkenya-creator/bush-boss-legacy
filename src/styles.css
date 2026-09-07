@@ -47,6 +47,8 @@
   --color-forest: var(--forest);
   --color-olive: var(--forest);
   --color-olive-foreground: var(--cream);
+  /* Alias: collaborator code says `text-gilt` for the same text accent. */
+  --color-gilt: var(--gold-ink);
   --color-clay: var(--clay);
   --color-stone: var(--stone);
   --color-cream: var(--cream);
@@ -56,13 +58,25 @@
   --font-sans: "Work Sans", system-ui, sans-serif;
 }
 
+/*
+ * THEME CONTEXTS
+ * -------------------------------------------------------------------------
+ * Every ground is a *context*, never a bare background colour. A context sets
+ * --background AND --foreground together, so `text-foreground`, `border-border`
+ * and `text-muted-foreground` are always legible on the surface beneath them.
+ *
+ * RULE: never write `bg-ink` / `bg-cream` on a section. Use `.on-dark` or
+ * `.on-light`. Painting a surface without flipping its tokens is what makes
+ * text vanish.
+ */
+
 :root {
   --radius: 0px;
 
   /* Heritage editorial palette */
   --ink: oklch(0.19 0.006 100); /* #171714 obsidian */
   --forest: oklch(0.33 0.03 158); /* #24352A deep forest */
-  --gold: oklch(0.65 0.088 80); /* #B28A4A burnished gold */
+  --gold: oklch(0.74 0.006 85); /* #B9B4AB warm grey — the metal accent */
   --gold-foreground: oklch(0.19 0.006 100);
   --clay: oklch(0.48 0.087 40); /* #8B4F3D terracotta */
   --stone: oklch(0.79 0.021 85); /* #C8BFAE */
@@ -92,8 +106,8 @@
   --input: oklch(0.81 0.021 85);
   --ring: oklch(0.5 0.088 78);
 
-  --earth: oklch(0.48 0.087 40);
-  --earth-foreground: oklch(0.94 0.021 85);
+  --earth: var(--clay);
+  --earth-foreground: var(--cream);
 
   --gradient-veil: linear-gradient(
     to top,
@@ -135,6 +149,32 @@
     color: var(--cream);
     background-color: var(--ink);
   }
+
+  /*
+   * Light ground — warm ivory archive pages. Only needed for a light section
+   * nested inside .on-dark; the page default is already light.
+   */
+  .on-light {
+    --background: var(--cream);
+    --foreground: var(--ink);
+    --card: oklch(0.965 0.014 85);
+    --card-foreground: var(--ink);
+    --popover: oklch(0.965 0.014 85);
+    --popover-foreground: var(--ink);
+    --secondary: oklch(0.88 0.02 85);
+    --secondary-foreground: var(--ink);
+    --muted: oklch(0.9 0.018 85);
+    --muted-foreground: oklch(0.44 0.012 75); /* 5.6:1 on ivory */
+    --border: oklch(0.8 0.021 85);
+    --input: oklch(0.8 0.021 85);
+    --accent-foreground: var(--cream);
+    --ring: oklch(0.5 0.088 78);
+    /* Gold deepens on ivory so small type clears AA. */
+    --gold-ink: oklch(0.44 0.085 68);
+
+    color: var(--ink);
+    background-color: var(--cream);
+  }
 }
 
 @layer base {
@@ -158,6 +198,12 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Anchor targets must clear the fixed header. */
+  section[id],
+  div[id] {
+    scroll-margin-top: 5.5rem;
   }
 
   h1,
@@ -276,7 +322,6 @@
 }
 
 /* --------------------------- reduced motion ------------------------------- */
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
