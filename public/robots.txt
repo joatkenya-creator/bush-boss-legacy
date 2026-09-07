@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Once the site has its own domain, set VITE_SITE_URL and add the sitemap here:
+# Sitemap: https://your-domain.com/sitemap.xml

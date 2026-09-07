@@ -1,17 +1,28 @@
 import roadFullaHole from "@/assets/road-fulla-hole.jpg";
 
 /**
- * Central content file for The Bush Boss.
- * Update copy, links and assets here — every page reads from this file.
+ * ============================================================================
+ * CONTENT SOURCE OF TRUTH — The Bush Boss
+ * ============================================================================
+ * Every page reads from this file. To update the website, edit here — no page
+ * layout needs to change.
+ *
+ * AUTHENTICITY RULE
+ * Nothing in this file may be invented. Awards, engagement counts, countries
+ * reached, book titles, historical claims, testimonials and social accounts
+ * must come from The Bush Boss directly. Unverified entries use an explicit
+ * placeholder, or `null`, which makes the site hide the claim entirely.
+ * ============================================================================
  */
 
 export const LINKS = {
+  /** Current music destination supplied by the artist. */
   music: "https://bit.ly/facebook-post-100000014054440",
+  /** Current Amazon Kindle destination supplied by the author. */
   books: "https://bit.ly/4yZghtM",
-  booking:
-    "mailto:booking@thebushboss.com?subject=Speaking%20Engagement%20Inquiry",
-  speakerInfo:
-    "mailto:booking@thebushboss.com?subject=Speaker%20Information%20Request",
+  bookingEmail: "booking@thebushboss.com",
+  booking: "mailto:booking@thebushboss.com?subject=Speaking%20Engagement%20Inquiry",
+  speakerInfo: "mailto:booking@thebushboss.com?subject=Speaker%20Information%20Request",
 };
 
 export const BRAND = {
@@ -23,6 +34,8 @@ export const BRAND = {
   mission: "Make the Maroon story impossible to ignore.",
   intro:
     "Known as Gangunjah Nevadye on the mic and Fabian Stennett on the page and the podium, The Bush Boss uses music, literature, and powerful storytelling to honor and amplify the Maroon story.",
+  manifesto:
+    "The Maroon story is a story of resistance, resilience, identity, culture, freedom, and survival. The Bush Boss brings that story into the present through music, literature, and speaking.",
 };
 
 /* ---------------------------------- nav ---------------------------------- */
@@ -36,6 +49,47 @@ export const navLinks = [
   { label: "Maroon Heritage", to: "/maroon-heritage" },
   { label: "Media", to: "/media" },
 ] as const;
+
+/* ------------------------------ three gifts ------------------------------ */
+
+export type Gift = {
+  index: string;
+  label: string;
+  name: string;
+  subheading: string;
+  description: string;
+  cta: { label: string; to: string };
+};
+
+export const gifts: Gift[] = [
+  {
+    index: "01",
+    label: "Music",
+    name: "Gangunjah Nevadye",
+    subheading: "Where history finds its rhythm.",
+    description:
+      "Through reggae and conscious music, Gangunjah Nevadye channels Maroon history, culture, resilience, and consciousness into sound.",
+    cta: { label: "Listen to the Music", to: "/music" },
+  },
+  {
+    index: "02",
+    label: "Literature",
+    name: "Fabian Stennett",
+    subheading: "Where history becomes story.",
+    description:
+      "Through books and storytelling, Fabian Stennett explores the Maroon story, Jamaican heritage, identity, resilience, and lived experience.",
+    cta: { label: "Explore the Books", to: "/books" },
+  },
+  {
+    index: "03",
+    label: "Speaking",
+    name: "The Message",
+    subheading: "Where stories become movements.",
+    description:
+      "Through motivational and cultural speaking, The Bush Boss challenges audiences to understand their history, embrace their identity, and move with purpose.",
+    cta: { label: "Book The Bush Boss", to: "/speaking" },
+  },
+];
 
 /* --------------------------------- music --------------------------------- */
 
@@ -58,14 +112,21 @@ export const featuredRelease: Release = {
   href: LINKS.music,
 };
 
-/** Streaming destinations. Replace each href as official links are confirmed. */
-export const platforms = [
-  { name: "Stream", href: LINKS.music },
-  { name: "Download", href: LINKS.music },
-  { name: "YouTube", href: LINKS.music },
+/**
+ * Streaming destinations. Every entry currently points at the one music link
+ * the artist supplied — replace each `href` as official platform URLs are
+ * confirmed, and delete any platform that will not be used.
+ */
+export const platforms: { name: string; href: string; confirmed: boolean }[] = [
+  { name: "Stream", href: LINKS.music, confirmed: true },
+  { name: "Download", href: LINKS.music, confirmed: false },
+  { name: "YouTube", href: LINKS.music, confirmed: false },
 ];
 
-/* --------------------------------- books ---------------------------------- */
+/** Additional catalogue entries. Add releases as they are confirmed. */
+export const releases: Release[] = [featuredRelease];
+
+/* --------------------------------- books --------------------------------- */
 
 export type Book = {
   title: string;
@@ -78,8 +139,8 @@ export type Book = {
 };
 
 /**
- * Placeholder catalogue entries. Titles and descriptions must be replaced with
- * the verified Amazon Kindle listings before launch.
+ * Placeholder catalogue. The author has 6+ titles on Amazon Kindle; titles and
+ * descriptions must be replaced with the verified listings before launch.
  */
 export const books: Book[] = [
   {
@@ -132,7 +193,43 @@ export const books: Book[] = [
   },
 ];
 
-/* -------------------------------- speaking -------------------------------- */
+/* ----------------------------- author profile ---------------------------- */
+
+export type AuthorProfileKey =
+  | "biography"
+  | "background"
+  | "publishedWorks"
+  | "awards"
+  | "interviews"
+  | "culturalInterests"
+  | "speakingExperience";
+
+/**
+ * Editorial biography. Every field is `null` until The Bush Boss supplies
+ * verified copy — the author section renders a labelled "to be supplied" note
+ * in place of any null field rather than publishing an invention.
+ */
+export const authorProfile: Record<AuthorProfileKey, string | null> = {
+  biography: null,
+  background: null,
+  publishedWorks: null,
+  awards: null,
+  interviews: null,
+  culturalInterests: null,
+  speakingExperience: null,
+};
+
+export const authorProfileFields: { key: AuthorProfileKey; label: string }[] = [
+  { key: "biography", label: "Biography" },
+  { key: "background", label: "Background" },
+  { key: "publishedWorks", label: "Published Works" },
+  { key: "awards", label: "Awards & Recognition" },
+  { key: "interviews", label: "Interviews" },
+  { key: "culturalInterests", label: "Cultural Interests" },
+  { key: "speakingExperience", label: "Speaking Experience" },
+];
+
+/* -------------------------------- speaking ------------------------------- */
 
 export type SpeakingTopic = {
   title: string;
@@ -143,14 +240,12 @@ export type SpeakingTopic = {
 export const speakingTopics: SpeakingTopic[] = [
   {
     title: "Jamaican History",
-    description:
-      "Exploring Jamaica's history and the stories that shaped its people.",
+    description: "Exploring Jamaica's history and the stories that shaped its people.",
     audience: "Schools, universities, cultural institutions",
   },
   {
     title: "Maroon Heritage",
-    description:
-      "Exploring Maroon identity, heritage, resilience, and cultural legacy.",
+    description: "Exploring Maroon identity, heritage, resilience, and cultural legacy.",
     audience: "Heritage organisations, festivals, community groups",
   },
   {
@@ -165,8 +260,7 @@ export const speakingTopics: SpeakingTopic[] = [
   },
   {
     title: "Music & Consciousness",
-    description:
-      "Exploring music as a vehicle for cultural expression and social consciousness.",
+    description: "Exploring music as a vehicle for cultural expression and social consciousness.",
     audience: "Festivals, media, creative programmes",
   },
   {
@@ -178,8 +272,8 @@ export const speakingTopics: SpeakingTopic[] = [
 ];
 
 /**
- * Credentials. `value: null` hides the metric until a verified figure is
- * supplied — never publish an invented number.
+ * Credentials. `value: null` hides the metric entirely until a verified figure
+ * is supplied — never publish an invented number.
  */
 export const credentials: { value: string | null; label: string }[] = [
   { value: null, label: "Speaking Engagements" },
@@ -188,6 +282,7 @@ export const credentials: { value: string | null; label: string }[] = [
   { value: null, label: "Countries Reached" },
 ];
 
+/** The kinds of rooms The Bush Boss speaks in — not a list of past clients. */
 export const speakingContexts = [
   "Organizations",
   "Schools",
@@ -198,7 +293,45 @@ export const speakingContexts = [
   "Media appearances",
 ];
 
-/* ---------------------------------- media --------------------------------- */
+/* ---------------------------- maroon heritage ---------------------------- */
+
+/**
+ * Thematic pillars only. This site does not publish historical claims that have
+ * not been verified — add sourced detail to `detail` as it is confirmed.
+ */
+export const maroonPillars: {
+  word: string;
+  description: string;
+  detail: string | null;
+}[] = [
+  { word: "Resistance", description: "The refusal to be erased.", detail: null },
+  {
+    word: "Resilience",
+    description: "Survival carried across generations.",
+    detail: null,
+  },
+  {
+    word: "Heritage",
+    description: "Language, land, music, memory.",
+    detail: null,
+  },
+  { word: "Identity", description: "Knowing where you come from.", detail: null },
+];
+
+/** Subject areas the heritage archive covers as sourced material is added. */
+export const maroonTopics = [
+  "Jamaican Maroons",
+  "Maroon heritage",
+  "Jamaican history",
+  "Cultural identity",
+  "Indigenous history",
+  "Resistance",
+  "Resilience",
+  "Community",
+  "Music and cultural movements",
+];
+
+/* ---------------------------------- media -------------------------------- */
 
 export type MediaItem = {
   title: string;
@@ -223,7 +356,7 @@ export const mediaCategories = [
   "Press coverage",
 ];
 
-/* --------------------------------- events --------------------------------- */
+/* --------------------------------- events -------------------------------- */
 
 export type EventItem = {
   title: string;
@@ -236,9 +369,10 @@ export type EventItem = {
 /** Empty until confirmed dates are supplied. */
 export const events: EventItem[] = [];
 
-/* --------------------------------- socials -------------------------------- */
+/* -------------------------------- socials -------------------------------- */
 
 /** Only verified destinations are listed. Add platforms as links are confirmed. */
 export const socials = [{ name: "Facebook", href: LINKS.music }];
 
+/** Named so visitors know the channels exist, without fabricating a URL. */
 export const pendingSocials = ["Instagram", "YouTube", "Spotify", "TikTok"];

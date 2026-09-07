@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BooksRouteImport } from './routes/books'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as MaroonHeritageRouteImport } from './routes/maroon-heritage'
+import { Route as MediaRouteImport } from './routes/media'
+import { Route as MusicRouteImport } from './routes/music'
+import { Route as SpeakingRouteImport } from './routes/speaking'
+import { Route as StoryRouteImport } from './routes/story'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BooksRoute = BooksRouteImport.update({
+  id: '/books',
+  path: '/books',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaroonHeritageRoute = MaroonHeritageRouteImport.update({
+  id: '/maroon-heritage',
+  path: '/maroon-heritage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaRoute = MediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicRoute = MusicRouteImport.update({
+  id: '/music',
+  path: '/music',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakingRoute = SpeakingRouteImport.update({
+  id: '/speaking',
+  path: '/speaking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoryRoute = StoryRouteImport.update({
+  id: '/story',
+  path: '/story',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/books': typeof BooksRoute
+  '/contact': typeof ContactRoute
+  '/maroon-heritage': typeof MaroonHeritageRoute
+  '/media': typeof MediaRoute
+  '/music': typeof MusicRoute
+  '/speaking': typeof SpeakingRoute
+  '/story': typeof StoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/books': typeof BooksRoute
+  '/contact': typeof ContactRoute
+  '/maroon-heritage': typeof MaroonHeritageRoute
+  '/media': typeof MediaRoute
+  '/music': typeof MusicRoute
+  '/speaking': typeof SpeakingRoute
+  '/story': typeof StoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/books': typeof BooksRoute
+  '/contact': typeof ContactRoute
+  '/maroon-heritage': typeof MaroonHeritageRoute
+  '/media': typeof MediaRoute
+  '/music': typeof MusicRoute
+  '/speaking': typeof SpeakingRoute
+  '/story': typeof StoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/books'
+    | '/contact'
+    | '/maroon-heritage'
+    | '/media'
+    | '/music'
+    | '/speaking'
+    | '/story'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/books'
+    | '/contact'
+    | '/maroon-heritage'
+    | '/media'
+    | '/music'
+    | '/speaking'
+    | '/story'
+  id:
+    | '__root__'
+    | '/'
+    | '/books'
+    | '/contact'
+    | '/maroon-heritage'
+    | '/media'
+    | '/music'
+    | '/speaking'
+    | '/story'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BooksRoute: typeof BooksRoute
+  ContactRoute: typeof ContactRoute
+  MaroonHeritageRoute: typeof MaroonHeritageRoute
+  MediaRoute: typeof MediaRoute
+  MusicRoute: typeof MusicRoute
+  SpeakingRoute: typeof SpeakingRoute
+  StoryRoute: typeof StoryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/books': {
+      id: '/books'
+      path: '/books'
+      fullPath: '/books'
+      preLoaderRoute: typeof BooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maroon-heritage': {
+      id: '/maroon-heritage'
+      path: '/maroon-heritage'
+      fullPath: '/maroon-heritage'
+      preLoaderRoute: typeof MaroonHeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media': {
+      id: '/media'
+      path: '/media'
+      fullPath: '/media'
+      preLoaderRoute: typeof MediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music': {
+      id: '/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MusicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speaking': {
+      id: '/speaking'
+      path: '/speaking'
+      fullPath: '/speaking'
+      preLoaderRoute: typeof SpeakingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/story': {
+      id: '/story'
+      path: '/story'
+      fullPath: '/story'
+      preLoaderRoute: typeof StoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BooksRoute: BooksRoute,
+  ContactRoute: ContactRoute,
+  MaroonHeritageRoute: MaroonHeritageRoute,
+  MediaRoute: MediaRoute,
+  MusicRoute: MusicRoute,
+  SpeakingRoute: SpeakingRoute,
+  StoryRoute: StoryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

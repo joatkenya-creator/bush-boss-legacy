@@ -1,488 +1,153 @@
-# Bush Boss Legacy
+# The Bush Boss
 
-Build a premium, visually powerful landing page for a Jamaican cultural artist and storyteller brand called “The Bush Boss.”
+The official website for **The Bush Boss** — the umbrella identity of Fabian
+Stennett, known in music as Gangunjah Nevadye.
 
-BRAND
+> **One Man. Three Gifts. One Mission.**
+> Musician. Author. Speaker.
+>
+> Mission: _make the Maroon story impossible to ignore._
 
-The Bush Boss — One Man. Three Gifts. One Mission.
+---
 
-The Bush Boss is the umbrella identity of Fabian Stennett, known in music as Gangunjah Nevadye.
+## Running it
 
-He is:
-
-🎶 A musician creating reggae/conscious music
-
-📚 An author with 6+ books available on Amazon Kindle
-
-🎤 A motivational and cultural speaker
-
-His mission is to make the Maroon story impossible to ignore by honoring and amplifying Maroon heritage through music, literature, history, culture, and speaking.
-
-The website should feel like a cultural movement and personal brand, NOT a generic musician portfolio.
-
-DESIGN DIRECTION
-
-Create a sophisticated, cinematic Jamaican/Caribbean aesthetic.
-
-The visual identity should communicate:
-
-Heritage + Resistance + Wisdom + Creativity + Modern African-Caribbean Excellence
-
-Use a warm, earthy visual palette inspired by:
-
-Deep charcoal/black
-
-Earth brown
-
-Muted gold
-
-Forest/olive green
-
-Warm cream
-
-Use color carefully. Avoid making the website look like a stereotypical “Jamaica tourism” website.
-
-Typography
-
-Use a strong editorial display font for major headings paired with a clean modern sans-serif for body text.
-
-Headings should feel bold, cultural, editorial, and authoritative.
-
-Visual style
-
-Use:
-
-Large cinematic imagery
-
-Editorial layouts
-
-Subtle texture/grain
-
-Strong typography
-
-Layered imagery
-
-Large whitespace
-
-Smooth scrolling
-
-Subtle animations
-
-Parallax/scroll effects where appropriate
-
-Avoid:
-
-Generic SaaS layouts
-
-Excessive rounded cards
-
-Neon colors
-
-Overused gradients
-
-Excessive glassmorphism
-
-Cartoonish reggae imagery
-
-“AI-generated website” aesthetics
-
-Excessive animations
-
-The website should feel like a high-end cultural publication mixed with an artist's official website.
-
-LANDING PAGE STRUCTURE
-
-1. HERO SECTION
-
-Create a full-screen cinematic hero.
-
-Eyebrow:
-
-THE BUSH BOSS
-
-Main headline:
-
-ONE MAN. THREE GIFTS. ONE MISSION.
-
-Subheading:
-
-Musician. Author. Speaker.
-
-Supporting copy:
-
-“Known as Gangunjah Nevadye on the mic and Fabian Stennett on the page and the podium, The Bush Boss uses music, literature, and powerful storytelling to honor and amplify the Maroon story.”
-
-Primary CTA:
-
-EXPLORE THE STORY
-
-Secondary CTA:
-
-BOOK THE BUSH BOSS
-
-Use a powerful authentic image representing Jamaican/Maroon heritage or an artist portrait if assets are available.
-
-Do NOT use stereotypical stock photography.
-
-2. THE THREE GIFTS
-
-Section heading:
-
-THREE GIFTS. ONE PURPOSE.
-
-Create three visually distinctive sections rather than generic cards.
-
-MUSIC
-
-GANGUNJAH NEVADYE
-
-“Where history finds its rhythm.”
-
-Copy:
-
-“Through reggae and conscious music, Gangunjah Nevadye channels Maroon history, culture, resilience, and consciousness into sound.”
-
-Feature:
-
-ROAD FULLA HOLE
-
-Label:
-
-NEW MUSIC — OUT NOW
-
-CTA:
-
-LISTEN NOW
-
-Include an elegant music-player style visual and links/placeholders for Spotify, Apple Music, YouTube, and other streaming platforms.
-
-BOOKS
-
-FABIAN STENNETT
-
-“Where history becomes story.”
-
-Copy:
-
-“Through literature, Fabian Stennett explores the Maroon story, Jamaican heritage, identity, resilience, and the experiences that shape us.”
-
-Highlight:
-
-6+ BOOKS AVAILABLE
-
-CTA:
-
-EXPLORE THE BOOKS
-
-Include a visually striking book-cover display.
-
-Add a placeholder button for:
-
-BUY ON AMAZON KINDLE
-
-SPEAKING
-
-THE MESSAGE
-
-“Where stories become movements.”
-
-Copy:
-
-“Through motivational and cultural speaking, The Bush Boss challenges audiences to understand their history, embrace their identity, and move with purpose.”
-
-CTA:
-
-BOOK A SPEAKING ENGAGEMENT
-
-Use imagery of a speaker addressing an audience.
-
-3. THE MAROON STORY
-
-Make this one of the strongest sections on the page.
-
-Use a dark, immersive editorial section.
-
-Heading:
-
-THE MAROON STORY
-
-Large statement:
-
-A STORY OF RESISTANCE. RESILIENCE. IDENTITY. FREEDOM.
-
-Copy:
-
-“The Maroon story is more than history. It is a living legacy of resistance, survival, culture, community, and identity.”
-
-Explain that The Bush Boss uses music, books, and speaking to bring greater attention to Jamaican Maroon heritage.
-
-CTA:
-
-EXPLORE MAROON HERITAGE
-
-Secondary:
-
-DISCOVER JAMAICAN HISTORY
-
-Visually create a transition from historical imagery into contemporary cultural imagery.
-
-4. FEATURED MUSIC
-
-Heading:
-
-ROAD FULLA HOLE
-
-Subheading:
-
-The latest release from Gangunjah Nevadye
-
-Create a premium music feature section.
-
-Include:
-
-Cover artwork placeholder
-
-Song title
-
-Artist name
-
-Short description
-
-Play button
-
-Streaming platform buttons
-
-YouTube button
-
-Make this feel like a professional music release campaign.
-
-Use this link as the current music destination:
-
-https://bit.ly/facebook-post-100000014054440
-
-Make the button say:
-
-STREAM / DOWNLOAD
-
-5. FEATURED BOOKS
-
-Heading:
-
-THE BOOKS
-
-Subheading:
-
-Stories. History. Culture. Perspective.
-
-Create an elegant horizontal book showcase.
-
-Display several book-cover placeholders that can later be replaced with the actual covers.
-
-Include:
-
-6+ TITLES AVAILABLE ON AMAZON KINDLE
-
-Primary CTA:
-
-VIEW ALL BOOKS
-
-Secondary CTA:
-
-SHOP ON AMAZON
-
-Use this current book destination:
-
-https://bit.ly/4yZghtM
-
-6. SPEAKING CTA
-
-Create a dramatic full-width section.
-
-Heading:
-
-SOME STORIES ARE MEANT TO BE HEARD.
-
-Copy:
-
-“Bring The Bush Boss to your school, university, conference, cultural event, community, or organization.”
-
-Show possible speaking themes:
-
-Jamaican History
-
-Maroon Heritage
-
-Culture & Identity
-
-Resilience
-
-Motivation
-
-Consciousness
-
-Personal Empowerment
-
-CTA:
-
-BOOK THE BUSH BOSS
-
-Secondary:
-
-INQUIRE ABOUT A SPEAKING ENGAGEMENT
-
-7. THE MOVEMENT
-
-Heading:
-
-JOIN THE MOVEMENT
-
-Copy:
-
-“Press play. Turn the page. Hear the message. Discover the story.”
-
-Encourage visitors to:
-
-Listen to the music
-
-Read the books
-
-Book a speaking engagement
-
-Follow the journey
-
-Share the Maroon story
-
-Include social media icons and newsletter signup.
-
-8. FOOTER
-
-Create a sophisticated footer containing:
-
-THE BUSH BOSS
-
-“One Man. Three Gifts. One Mission.”
-
-Navigation:
-
-Home
-
-Story
-
-Music
-
-Books
-
-Speaking
-
-Maroon Heritage
-
-Media
-
-Contact
-
-Social links:
-
-Facebook
-
-Instagram
-
-YouTube
-
-Spotify
-
-TikTok
-
-Include copyright information.
-
-UX REQUIREMENTS
-
-The website must be:
-
-Fully responsive
-
-Mobile-first
-
-Fast-loading
-
-Accessible
-
-SEO-friendly
-
-Semantic HTML
-
-Easy to maintain
-
-Easy to replace images and book covers
-
-Easy to update music releases
-
-Easy to add future books
-
-Easy to add speaking engagements
-
-Create reusable components for:
-
-Book cards
-
-Music releases
-
-Speaking topics
-
-Social links
-
-CTA sections
-
-Use smooth but restrained animations.
-
-Animations should enhance storytelling rather than distract from the content.
-
-IMPORTANT BRAND RULES
-
-Do NOT make this look like:
-
-A generic reggae musician website
-
-A generic author website
-
-A generic motivational speaker website
-
-A generic AI-generated landing page
-
-The three identities should feel like one connected cultural brand.
-
-The visual hierarchy should always communicate:
-
-THE BUSH BOSS
-↓
-MUSICIAN — AUTHOR — SPEAKER
-↓
-THE MAROON STORY
-↓
-THE MISSION
-
-The website should leave visitors feeling:
-
-“I have discovered a person with a story, a purpose, and something important to say.”
-
-Build the landing page with polished production-quality UI, realistic placeholder content where assets are unavailable, and a strong visual narrative from the first screen to the final CTA.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d85b42ea-d35d-4260-be05-4e02a8864970).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```bash
+bun install       # or: npm install
+bun run dev       # http://localhost:3000
+bun run build     # production build into .output/
+bun run lint
 ```
+
+No configuration is required to run it. There is one optional setting,
+`VITE_SITE_URL` — see [When you get a domain](#when-you-get-a-domain).
+
+Stack: TanStack Start (file-based routing, SSR) · React 19 · Tailwind CSS v4 ·
+TypeScript.
+
+---
+
+## Updating the site
+
+**Almost every change you will want to make lives in one file:
+[`src/lib/site-content.ts`](src/lib/site-content.ts).**
+
+It is the single source of truth for copy, links and catalogue data. The pages
+read from it, so adding a book, a release, a press item or a date needs no
+layout work — add the entry and it appears.
+
+| What to change                 | Where                                               |
+| ------------------------------ | --------------------------------------------------- |
+| Music / Amazon / booking links | `LINKS`                                             |
+| Names, taglines, mission       | `BRAND`                                             |
+| Navigation                     | `navLinks` (also add the matching route file)       |
+| The three gifts                | `gifts`                                             |
+| Featured release, catalogue    | `featuredRelease`, `releases`, `platforms`          |
+| Books                          | `books`                                             |
+| Author biography               | `authorProfile`                                     |
+| Speaking topics, metrics       | `speakingTopics`, `credentials`, `speakingContexts` |
+| Maroon heritage themes         | `maroonPillars`, `maroonTopics`                     |
+| Press and appearances          | `mediaItems`                                        |
+| Event dates                    | `events`                                            |
+| Social profiles                | `socials`, `pendingSocials`                         |
+
+### The authenticity rule
+
+**Nothing on this site may be invented.** Awards, engagement counts, countries
+reached, book titles, historical claims, testimonials and social accounts are
+published only when The Bush Boss has supplied them.
+
+The content model enforces this rather than relying on good intentions:
+
+- A metric with `value: null` in `credentials` is **not rendered at all** — the
+  speaking page shows an "awaiting verified figures" note instead of a number.
+- Every field in `authorProfile` is `null` until real copy arrives; the author
+  section prints "To be supplied by Fabian Stennett." in its place.
+- `mediaItems` and `events` are empty arrays. Their sections render a designed
+  empty state naming what will go there.
+- Placeholder book titles contain the words "to be confirmed", which keeps them
+  out of the `Book` structured data until they are replaced.
+- Social platforms without a confirmed URL are shown dimmed and unlinked rather
+  than pointed at a guessed profile.
+
+Replace a placeholder by editing the data — no component needs to change.
+
+### When you get a domain
+
+The site has no domain baked into it. Until one exists, every page
+canonicalises to whatever host served the request — correct on `localhost` and
+on any preview URL, and never pointing at a domain nobody owns.
+
+To pin it, set **one** variable (see [`.env.example`](.env.example)) — either in
+a `.env` file or in your host's build environment:
+
+```
+VITE_SITE_URL=https://your-domain.com
+```
+
+That switches on canonical links, `og:url`, absolute social-card image URLs, the
+schema.org identifiers, and sitemap generation at build time. Then add the
+sitemap line to [`public/robots.txt`](public/robots.txt).
+
+### Before launch
+
+- [ ] **Set a booking email that actually receives mail.** `LINKS.booking` and
+      `LINKS.speakerInfo` in `src/lib/site-content.ts` currently point at
+      `booking@thebushboss.com`, a mailbox on a domain that has not been
+      registered — every booking enquiry, the site's primary conversion, would
+      bounce. This must be a working address before the site goes live.
+- [ ] Set `VITE_SITE_URL` once the domain is registered (see above).
+- [ ] Replace the six placeholder `books` entries with verified titles, covers,
+      descriptions, publication dates and Amazon links.
+- [ ] Replace the stock photography in `src/assets/` with authentic images of
+      The Bush Boss, and update each `alt` where the subject changes.
+- [ ] Add confirmed streaming URLs to `platforms` (they all currently point at
+      the one music link the artist supplied) and set `confirmed: true`.
+- [ ] Add verified `socials` and remove those names from `pendingSocials`.
+- [ ] Point `NewsletterForm` at a real mailing-list provider — it currently
+      confirms locally and does not subscribe anyone.
+- [ ] Fill in `authorProfile` and any `credentials` figures that can be verified.
+
+---
+
+## Structure
+
+```
+src/
+  routes/            one file per page (TanStack file-based routing)
+    __root.tsx       app shell: header, footer, global metadata, site schema
+    index.tsx        home
+    story.tsx  music.tsx  books.tsx  speaking.tsx
+    maroon-heritage.tsx  media.tsx  contact.tsx
+  components/        section and page components
+    ui/              shadcn primitives + ActionLink (the site's one CTA element)
+  lib/
+    site-content.ts  ← all content
+    site-url.ts      resolves the site's origin (VITE_SITE_URL, else the host)
+    seo.ts           per-route title, description, Open Graph, canonical
+    structured-data.ts  schema.org graphs (Person, WebSite, MusicGroup, Book, …)
+  styles.css         design tokens, typography, texture, motion
+```
+
+### Design system
+
+Defined entirely in [`src/styles.css`](src/styles.css). A heritage editorial
+palette — obsidian, deep forest, burnished gold, terracotta, warm ivory, stone —
+deliberately avoiding the green/yellow/red tourist cliché. Fraunces for display,
+Work Sans for body. Square corners, hairline rules, film grain.
+
+Sections alternate between the ivory default and the obsidian palette. Dark
+sections opt in with a single `dark` prop on `<Section>`, which applies
+`.on-dark` — a scoped set of token overrides, so every component inverts without
+needing a dark variant of its own.
+
+Two gold tokens exist on purpose: `--gold` for fills, rules and borders, and
+`--gold-ink` for type. `--gold-ink` darkens on ivory and lifts on obsidian so
+small gold text clears WCAG AA in both.
+
+### Motion
+
+Fade-up reveals, image wipe-ins, and a slow hero parallax, all driven by
+`IntersectionObserver`. Everything is disabled under
+`prefers-reduced-motion: reduce`, and content renders visible when the observer
+is unavailable — motion never gates access to content.

@@ -1,66 +1,78 @@
+import { Reveal, RevealImage } from "@/components/Reveal";
 import { ActionLink } from "@/components/ui/action-link";
 import { featuredRelease, platforms } from "@/lib/site-content";
 
+/** A deterministic, decorative waveform — not a rendering of the audio. */
+const BARS = Array.from({ length: 56 }, (_, i) => {
+  const h = Math.abs(Math.sin(i * 0.7) * 0.55 + Math.sin(i * 0.23) * 0.45);
+  return 22 + h * 78;
+});
+
+/**
+ * The release feature: sleeve artwork, credits, a play affordance that opens
+ * the artist's current music destination, and the platform buttons.
+ */
 export function MusicFeature() {
+  const release = featuredRelease;
+
   return (
-    <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+    <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
       <div className="relative">
         <div
-          className="absolute -inset-3 -z-10 opacity-40 blur-2xl"
-          style={{ background: "var(--gradient-earth)" }}
           aria-hidden="true"
+          className="absolute -inset-4 -z-10 opacity-45 blur-3xl"
+          style={{ background: "var(--gradient-earth)" }}
         />
-        <img
-          src={featuredRelease.cover}
-          alt="Cover artwork for Road Fulla Hole by Gangunjah Nevadye"
+        <RevealImage
+          src={release.cover}
+          alt={`Sleeve artwork for ${release.title} by ${release.artist}`}
           width={1024}
           height={1024}
-          loading="lazy"
-          className="w-full border border-border object-cover"
-          style={{ boxShadow: "var(--shadow-deep)" }}
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          className="aspect-square border border-border"
         />
       </div>
 
-      <div>
-        <p className="eyebrow">{featuredRelease.label}</p>
-        <h3 className="mt-5 text-5xl sm:text-6xl">{featuredRelease.title}</h3>
-        <p className="mt-4 text-sm uppercase tracking-[0.26em] text-gold">
-          {featuredRelease.artist}
-        </p>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-          {featuredRelease.description}
+      <Reveal delay={100}>
+        <p className="eyebrow">{release.label}</p>
+        <h3 className="mt-5 text-balance text-4xl sm:text-5xl lg:text-6xl">{release.title}</h3>
+        <p className="mt-4 text-sm uppercase tracking-[0.28em] text-gold-ink">{release.artist}</p>
+        <p className="mt-6 max-w-xl text-pretty leading-relaxed text-muted-foreground">
+          {release.description}
         </p>
 
-        <div className="mt-8 flex items-center gap-4 border border-border p-4">
+        {/* Player-style launcher */}
+        <div className="mt-9 flex items-center gap-5 border border-border p-4 sm:p-5">
           <a
-            href={featuredRelease.href}
+            href={release.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Play Road Fulla Hole"
-            className="flex size-14 shrink-0 items-center justify-center rounded-full bg-gold text-gold-foreground transition-transform duration-300 hover:scale-105"
+            className="flex size-14 shrink-0 items-center justify-center rounded-full bg-gold text-gold-foreground transition-transform duration-300 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
+            <span className="sr-only">
+              Play {release.title} by {release.artist}
+            </span>
             <svg
               viewBox="0 0 24 24"
-              className="size-5"
+              className="size-5 translate-x-px"
               fill="currentColor"
               aria-hidden="true"
             >
               <path d="M8 5v14l11-7z" />
             </svg>
           </a>
+
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-medium">
-              {featuredRelease.title} — {featuredRelease.artist}
+              {release.title}
+              <span className="text-muted-foreground"> — {release.artist}</span>
             </p>
-            <div className="mt-3 flex h-6 items-end gap-[3px]" aria-hidden="true">
-              {Array.from({ length: 44 }).map((_, i) => (
+            <div className="mt-3 flex h-7 items-end gap-[3px]" aria-hidden="true">
+              {BARS.map((height, i) => (
                 <span
                   key={i}
                   className="w-full bg-forest"
-                  style={{
-                    height: `${20 + Math.abs(Math.sin(i * 1.7)) * 80}%`,
-                    opacity: i < 16 ? 1 : 0.3,
-                  }}
+                  style={{ height: `${height}%`, opacity: i < 18 ? 1 : 0.28 }}
                 />
               ))}
             </div>
@@ -70,24 +82,26 @@ export function MusicFeature() {
         <ul className="mt-6 flex flex-wrap gap-3">
           {platforms.map((platform) => (
             <li key={platform.name}>
-              <ActionLink
-                href={platform.href}
-                external
-                variant="outline"
-                className="px-5 py-3"
-              >
+              <ActionLink href={platform.href} variant="outline" size="sm">
                 {platform.name}
               </ActionLink>
             </li>
           ))}
         </ul>
 
-        <div className="mt-8">
-          <ActionLink href={featuredRelease.href} external>
+        {platforms.some((p) => !p.confirmed) && (
+          <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-muted-foreground/80">
+            Platform links point to the artist&rsquo;s current music post until dedicated streaming
+            URLs are confirmed.
+          </p>
+        )}
+
+        <div className="mt-9">
+          <ActionLink href={release.href} size="lg">
             Stream / Download
           </ActionLink>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }

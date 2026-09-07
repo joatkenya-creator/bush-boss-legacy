@@ -4,11 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ==========================================================================
+   THE BUSH BOSS — design tokens
+   A heritage editorial palette: obsidian, deep forest, burnished gold,
+   terracotta, warm ivory and stone. Gold is an accent, never a field.
+   ========================================================================== */
+
 @theme inline {
+  /* Square corners throughout — this is print, not product UI. */
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
-  --radius-xl: 2px;
+  --radius-xl: 0px;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -28,17 +36,22 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-earth: var(--earth);
   --color-earth-foreground: var(--earth-foreground);
+  /* Brand gold — for fills, rules and borders. */
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
+  /* Gold for TYPE. Shifts light/dark so small text always clears WCAG AA. */
+  --color-gold-ink: var(--gold-ink);
+  --color-forest: var(--forest);
   --color-olive: var(--forest);
   --color-olive-foreground: var(--cream);
-  --color-forest: var(--forest);
   --color-clay: var(--clay);
   --color-stone: var(--stone);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
+
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-sans: "Work Sans", system-ui, sans-serif;
 }
@@ -55,6 +68,9 @@
   --stone: oklch(0.79 0.021 85); /* #C8BFAE */
   --cream: oklch(0.94 0.021 85); /* #F3EBDD warm ivory */
 
+  /* Deepened gold for text on ivory — AA at small sizes. */
+  --gold-ink: oklch(0.44 0.085 68);
+
   --background: oklch(0.94 0.021 85);
   --foreground: oklch(0.19 0.006 100);
   --card: oklch(0.965 0.014 85);
@@ -67,14 +83,14 @@
   --secondary: oklch(0.88 0.02 85);
   --secondary-foreground: oklch(0.19 0.006 100);
   --muted: oklch(0.9 0.018 85);
-  --muted-foreground: oklch(0.44 0.012 75);
+  --muted-foreground: oklch(0.42 0.012 75);
   --accent: oklch(0.33 0.03 158);
   --accent-foreground: oklch(0.94 0.021 85);
   --destructive: oklch(0.48 0.14 30);
   --destructive-foreground: oklch(0.96 0.01 85);
   --border: oklch(0.81 0.021 85);
   --input: oklch(0.81 0.021 85);
-  --ring: oklch(0.65 0.088 80);
+  --ring: oklch(0.5 0.088 78);
 
   --earth: oklch(0.48 0.087 40);
   --earth-foreground: oklch(0.94 0.021 85);
@@ -82,31 +98,43 @@
   --gradient-veil: linear-gradient(
     to top,
     oklch(0.19 0.006 100) 4%,
-    oklch(0.19 0.006 100 / 0.74) 44%,
-    oklch(0.19 0.006 100 / 0.3) 100%
+    oklch(0.19 0.006 100 / 0.76) 44%,
+    oklch(0.19 0.006 100 / 0.32) 100%
   );
-  --gradient-earth: linear-gradient(
-    150deg,
-    oklch(0.29 0.02 120),
-    oklch(0.2 0.012 60)
-  );
+  --gradient-earth: linear-gradient(150deg, oklch(0.29 0.02 120), oklch(0.2 0.012 60));
   --shadow-deep: 0 40px 80px -32px oklch(0 0 0 / 0.45);
   --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Dark editorial sections — token overrides scoped to a wrapper. */
-.on-dark {
-  --background: var(--ink);
-  --foreground: var(--cream);
-  --card: oklch(0.23 0.008 100);
-  --card-foreground: var(--cream);
-  --muted-foreground: oklch(0.76 0.016 85);
-  --border: oklch(0.34 0.012 90);
-  --input: oklch(0.34 0.012 90);
-  --secondary: oklch(0.26 0.01 100);
-  --secondary-foreground: var(--cream);
-  color: var(--cream);
-  background-color: var(--ink);
+/*
+ * Dark editorial sections. Scoped token overrides rather than a second set of
+ * utility classes — every component below reads background/foreground/border
+ * and simply inverts when it lands inside `.on-dark`.
+ *
+ * Lives in `base` deliberately: unlayered CSS outranks every Tailwind utility,
+ * which would stop `bg-transparent` / `bg-ink/85` from ever taking effect on an
+ * `.on-dark` element (the sticky header needs exactly that).
+ */
+@layer base {
+  .on-dark {
+    --background: var(--ink);
+    --foreground: var(--cream);
+    --card: oklch(0.23 0.008 100);
+    --card-foreground: var(--cream);
+    --popover: oklch(0.23 0.008 100);
+    --popover-foreground: var(--cream);
+    --muted-foreground: oklch(0.78 0.016 85);
+    --border: oklch(0.36 0.012 90);
+    --input: oklch(0.36 0.012 90);
+    --secondary: oklch(0.26 0.01 100);
+    --secondary-foreground: var(--cream);
+    --ring: var(--gold);
+    /* Gold lifts on ink so small type stays legible. */
+    --gold-ink: oklch(0.76 0.09 82);
+
+    color: var(--cream);
+    background-color: var(--ink);
+  }
 }
 
 @layer base {
@@ -116,31 +144,69 @@
 
   html {
     scroll-behavior: smooth;
+    /* Clear the fixed header when jumping to an anchor. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 400;
+    /* Never allow a wide element to scroll the whole page sideways. */
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
   h2,
   h3,
+  h4,
   .display {
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.025em;
     line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  h3,
+  h4 {
+    line-height: 1.1;
+  }
+
+  a,
+  button {
+    /* Thumb-friendly targets without adding chrome. */
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
   }
 
   ::selection {
     background: var(--gold);
     color: var(--gold-foreground);
   }
+
+  code {
+    font-family: inherit;
+    color: var(--foreground);
+  }
 }
 
+/* ------------------------------ texture ---------------------------------- */
+
+/*
+ * Marks an element as the anchor for a `.grain-overlay` child.
+ * Note: this sets `position: relative`, and a custom utility outranks the core
+ * ones — so `grain fixed` resolves to `relative`. Anything that needs another
+ * position value must anchor its overlay itself, without this class.
+ */
 @utility grain {
   position: relative;
 }
@@ -149,24 +215,29 @@
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: 0.07;
+  opacity: 0.06;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* ---------------------------- type signatures ----------------------------- */
+
 @utility eyebrow {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   font-size: 0.66rem;
   font-weight: 500;
-  color: var(--gold);
+  line-height: 1.6;
+  color: var(--gold-ink);
 }
 
 @utility rule-gold {
   background: linear-gradient(to right, var(--gold), transparent);
   height: 1px;
 }
+
+/* ------------------------------ motion ------------------------------------ */
 
 @utility reveal {
   opacity: 0;
@@ -190,17 +261,48 @@
   clip-path: inset(0 0 0 0);
 }
 
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(180%);
+  }
+}
+
+.scroll-cue {
+  animation: scroll-cue 2.6s var(--ease-cinematic) infinite;
+}
+
+/* --------------------------- reduced motion ------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
+
   .image-mask {
     clip-path: none;
     transition: none;
+  }
+
+  .scroll-cue {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
