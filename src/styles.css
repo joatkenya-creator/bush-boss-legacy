@@ -32,8 +32,10 @@
   --color-earth-foreground: var(--earth-foreground);
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
-  --color-olive: var(--forest);
-  --color-olive-foreground: var(--cream);
+  /* Context-aware accent for TEXT — darkens automatically on ivory grounds.
+     Token names stay --gold/gilt so every call site keeps working; the value is
+     the brand's warm grey. */
+  --color-gilt: var(--gold-text);
   --color-forest: var(--forest);
   --color-clay: var(--clay);
   --color-stone: var(--stone);
@@ -43,70 +45,96 @@
   --font-sans: "Work Sans", system-ui, sans-serif;
 }
 
-:root {
+/*
+ * THEME CONTEXTS
+ * -------------------------------------------------------------------------
+ * Every ground is a *context*, never a bare background colour. A context sets
+ * --background AND --foreground together, so `text-foreground`, `border-border`
+ * and `text-muted-foreground` are always legible on the surface beneath them.
+ *
+ * RULE: never write `bg-ink` / `bg-cream` on a section. Use `.on-dark` or
+ * `.on-light`. Painting a surface without flipping its tokens is what makes
+ * text vanish.
+ */
+
+:root,
+.on-dark {
   --radius: 0px;
 
   /* Heritage editorial palette */
   --ink: oklch(0.19 0.006 100); /* #171714 obsidian */
   --forest: oklch(0.33 0.03 158); /* #24352A deep forest */
-  --gold: oklch(0.65 0.088 80); /* #B28A4A burnished gold */
+  --gold: oklch(0.74 0.006 85); /* #B9B4AB warm grey — the metal accent */
   --gold-foreground: oklch(0.19 0.006 100);
   --clay: oklch(0.48 0.087 40); /* #8B4F3D terracotta */
   --stone: oklch(0.79 0.021 85); /* #C8BFAE */
   --cream: oklch(0.94 0.021 85); /* #F3EBDD warm ivory */
 
-  --background: oklch(0.94 0.021 85);
-  --foreground: oklch(0.19 0.006 100);
-  --card: oklch(0.965 0.014 85);
-  --card-foreground: oklch(0.19 0.006 100);
-  --popover: oklch(0.965 0.014 85);
-  --popover-foreground: oklch(0.19 0.006 100);
+  /* Dark ground — the default for this site. */
+  --background: var(--ink);
+  --foreground: var(--cream);
+  --gold-text: var(--gold); /* 9.6:1 on obsidian */
+  --card: oklch(0.225 0.008 100);
+  --card-foreground: var(--cream);
+  --popover: oklch(0.225 0.008 100);
+  --popover-foreground: var(--cream);
 
-  --primary: oklch(0.19 0.006 100);
-  --primary-foreground: oklch(0.94 0.021 85);
-  --secondary: oklch(0.88 0.02 85);
-  --secondary-foreground: oklch(0.19 0.006 100);
-  --muted: oklch(0.9 0.018 85);
-  --muted-foreground: oklch(0.44 0.012 75);
+  --primary: var(--gold);
+  --primary-foreground: var(--ink);
+  --secondary: oklch(0.26 0.01 100);
+  --secondary-foreground: var(--cream);
+  --muted: oklch(0.26 0.01 100);
+  --muted-foreground: oklch(0.76 0.018 85); /* 8:1 on obsidian */
   --accent: oklch(0.33 0.03 158);
-  --accent-foreground: oklch(0.94 0.021 85);
-  --destructive: oklch(0.48 0.14 30);
-  --destructive-foreground: oklch(0.96 0.01 85);
-  --border: oklch(0.81 0.021 85);
-  --input: oklch(0.81 0.021 85);
-  --ring: oklch(0.65 0.088 80);
+  --accent-foreground: var(--cream);
+  --destructive: oklch(0.55 0.16 30);
+  --destructive-foreground: var(--cream);
+  --border: oklch(0.34 0.012 90);
+  --input: oklch(0.34 0.012 90);
+  --ring: var(--gold);
 
-  --earth: oklch(0.48 0.087 40);
-  --earth-foreground: oklch(0.94 0.021 85);
+  --earth: var(--clay);
+  --earth-foreground: var(--cream);
 
   --gradient-veil: linear-gradient(
     to top,
     oklch(0.19 0.006 100) 4%,
-    oklch(0.19 0.006 100 / 0.74) 44%,
-    oklch(0.19 0.006 100 / 0.3) 100%
+    oklch(0.19 0.006 100 / 0.78) 46%,
+    oklch(0.19 0.006 100 / 0.34) 100%
   );
   --gradient-earth: linear-gradient(
     150deg,
     oklch(0.29 0.02 120),
     oklch(0.2 0.012 60)
   );
-  --shadow-deep: 0 40px 80px -32px oklch(0 0 0 / 0.45);
+  --shadow-deep: 0 40px 80px -32px oklch(0 0 0 / 0.55);
   --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Dark editorial sections — token overrides scoped to a wrapper. */
-.on-dark {
-  --background: var(--ink);
-  --foreground: var(--cream);
-  --card: oklch(0.23 0.008 100);
-  --card-foreground: var(--cream);
-  --muted-foreground: oklch(0.76 0.016 85);
-  --border: oklch(0.34 0.012 90);
-  --input: oklch(0.34 0.012 90);
-  --secondary: oklch(0.26 0.01 100);
-  --secondary-foreground: var(--cream);
-  color: var(--cream);
-  background-color: var(--ink);
+/* Light ground — warm ivory archive pages. */
+.on-light {
+  --background: var(--cream);
+  --foreground: var(--ink);
+  /* The light grey is only 1.8:1 on ivory — step it down for text here. */
+  --gold-text: oklch(0.45 0.005 85); /* 5.2:1 on ivory */
+  --ring: oklch(0.45 0.005 85);
+  --card: oklch(0.965 0.014 85);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.965 0.014 85);
+  --popover-foreground: var(--ink);
+  --secondary: oklch(0.88 0.02 85);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.9 0.018 85);
+  --muted-foreground: oklch(0.44 0.012 75); /* 5.6:1 on ivory */
+  --border: oklch(0.8 0.021 85);
+  --input: oklch(0.8 0.021 85);
+  --accent-foreground: var(--cream);
+}
+
+.on-dark,
+.on-light {
+  color: var(--foreground);
+  background-color: var(--background);
 }
 
 @layer base {
@@ -123,6 +151,12 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* Anchor targets must clear the fixed header. */
+  section[id],
+  div[id] {
+    scroll-margin-top: 5.5rem;
   }
 
   h1,
@@ -160,7 +194,7 @@
   letter-spacing: 0.32em;
   font-size: 0.66rem;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 @utility rule-gold {
@@ -190,6 +224,14 @@
   clip-path: inset(0 0 0 0);
 }
 
+/* Parallax driven by a single --sy custom property set on <html> — no React
+   re-render per scroll frame. */
+@utility parallax {
+  transform: translate3d(0, calc(var(--sy, 0) * var(--depth, 0.1) * 1px), 0)
+    scale(1.12);
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -202,5 +244,8 @@
   .image-mask {
     clip-path: none;
     transition: none;
+  }
+  .parallax {
+    transform: none;
   }
 }

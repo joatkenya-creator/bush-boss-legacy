@@ -1,5 +1,3 @@
-import { Link } from "@tanstack/react-router";
-
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SocialLinks } from "@/components/SocialLinks";
 import { BRAND, navLinks } from "@/lib/site-content";
@@ -10,13 +8,10 @@ export function SiteFooter() {
       <span className="grain-overlay" aria-hidden="true" />
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[1.3fr_0.7fr_1.2fr]">
         <div>
-          <p className="display text-3xl text-cream">{BRAND.name}</p>
-          <p className="mt-4 text-sm italic text-muted-foreground">
-            {BRAND.tagline}
-          </p>
+          <p className="display text-3xl text-foreground">{BRAND.name}</p>
+          <p className="mt-4 text-sm italic text-muted-foreground">{BRAND.tagline}</p>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            {BRAND.author} — musician, author and cultural speaker amplifying
-            the Maroon story.
+            {BRAND.author} — musician, author and cultural speaker amplifying the Maroon story.
           </p>
           <SocialLinks className="mt-8" />
         </div>
@@ -26,18 +21,18 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3">
             {navLinks.map((link) => (
               <li key={link.label}>
-                <Link
-                  to={link.to}
-                  className="text-sm text-muted-foreground transition-colors hover:text-gold"
+                <a
+                  href={link.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-gilt"
                 >
                   {link.label}
-                </Link>
+                </a>
               </li>
             ))}
             <li>
               <a
                 href="mailto:booking@thebushboss.com"
-                className="text-sm text-muted-foreground transition-colors hover:text-gold"
+                className="text-sm text-muted-foreground transition-colors hover:text-gilt"
               >
                 Contact
               </a>

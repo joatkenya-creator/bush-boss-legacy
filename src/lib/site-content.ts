@@ -3,15 +3,21 @@ import roadFullaHole from "@/assets/road-fulla-hole.jpg";
 /**
  * Central content file for The Bush Boss.
  * Update copy, links and assets here — every page reads from this file.
+ *
+ * AUTHENTICITY RULE: nothing in this file may be invented. Awards, degrees,
+ * engagement counts, book titles, historical claims, testimonials and social
+ * accounts stay as explicit placeholders (or `null`) until verified copy is
+ * supplied. Placeholders render as visibly labelled on the page; invented
+ * facts are not recoverable once published.
  */
 
 export const LINKS = {
   music: "https://bit.ly/facebook-post-100000014054440",
   books: "https://bit.ly/4yZghtM",
-  booking:
-    "mailto:booking@thebushboss.com?subject=Speaking%20Engagement%20Inquiry",
-  speakerInfo:
-    "mailto:booking@thebushboss.com?subject=Speaker%20Information%20Request",
+  booking: "mailto:booking@thebushboss.com?subject=Speaking%20Engagement%20Inquiry",
+  speakerInfo: "mailto:booking@thebushboss.com?subject=Speaker%20Information%20Request",
+  /** Replace with the production domain before launch (canonical + OG tags). */
+  siteUrl: "https://thebushboss.com",
 };
 
 export const BRAND = {
@@ -27,15 +33,30 @@ export const BRAND = {
 
 /* ---------------------------------- nav ---------------------------------- */
 
+/**
+ * The site is a single narrative page — every destination is an in-page
+ * anchor. Add `to:` routes here only once real sub-pages exist, otherwise the
+ * links resolve to 404s.
+ */
 export const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Story", to: "/story" },
-  { label: "Music", to: "/music" },
-  { label: "Books", to: "/books" },
-  { label: "Speaking", to: "/speaking" },
-  { label: "Maroon Heritage", to: "/maroon-heritage" },
-  { label: "Media", to: "/media" },
+  { label: "Home", href: "#top" },
+  { label: "Story", href: "#story" },
+  { label: "Music", href: "#music" },
+  { label: "Books", href: "#books" },
+  { label: "Speaking", href: "#speaking" },
+  { label: "Maroon Heritage", href: "#maroon" },
+  { label: "Media", href: "#media" },
 ] as const;
+
+/* -------------------------------- manifesto ------------------------------- */
+
+export const manifesto = {
+  heading: "The story deserves to be heard.",
+  lead: "The Maroon story is a story of resistance, resilience, identity, culture, freedom, and survival.",
+  body: "The Bush Boss brings that story into the present through music, literature, and speaking.",
+  closing:
+    "Three disciplines, one refusal — that a people who fought for their freedom should be remembered as a footnote. The mission is simple: make the Maroon story impossible to ignore.",
+};
 
 /* --------------------------------- music --------------------------------- */
 
@@ -132,6 +153,31 @@ export const books: Book[] = [
   },
 ];
 
+/* --------------------------------- author --------------------------------- */
+
+/**
+ * Author profile. Every `null` field is hidden on the page until a verified
+ * value is supplied — do not fill these with plausible-sounding biography.
+ */
+export const author: {
+  name: string;
+  role: string;
+  biography: string | null;
+  fields: { label: string; value: string | null }[];
+} = {
+  name: "Fabian Stennett",
+  role: "Author · Cultural storyteller",
+  biography: null,
+  fields: [
+    { label: "Background", value: null },
+    { label: "Published works", value: "6+ titles on Amazon Kindle" },
+    { label: "Awards", value: null },
+    { label: "Interviews", value: null },
+    { label: "Cultural interests", value: null },
+    { label: "Speaking experience", value: null },
+  ],
+};
+
 /* -------------------------------- speaking -------------------------------- */
 
 export type SpeakingTopic = {
@@ -143,14 +189,12 @@ export type SpeakingTopic = {
 export const speakingTopics: SpeakingTopic[] = [
   {
     title: "Jamaican History",
-    description:
-      "Exploring Jamaica's history and the stories that shaped its people.",
+    description: "Exploring Jamaica's history and the stories that shaped its people.",
     audience: "Schools, universities, cultural institutions",
   },
   {
     title: "Maroon Heritage",
-    description:
-      "Exploring Maroon identity, heritage, resilience, and cultural legacy.",
+    description: "Exploring Maroon identity, heritage, resilience, and cultural legacy.",
     audience: "Heritage organisations, festivals, community groups",
   },
   {
@@ -165,8 +209,7 @@ export const speakingTopics: SpeakingTopic[] = [
   },
   {
     title: "Music & Consciousness",
-    description:
-      "Exploring music as a vehicle for cultural expression and social consciousness.",
+    description: "Exploring music as a vehicle for cultural expression and social consciousness.",
     audience: "Festivals, media, creative programmes",
   },
   {
@@ -196,6 +239,19 @@ export const speakingContexts = [
   "Festivals",
   "Cultural events",
   "Media appearances",
+];
+
+/* --------------------------- maroon heritage ------------------------------ */
+
+/**
+ * Themes only — deliberately no dates, names or historical claims. Verified,
+ * sourced historical content drops into `detail` when it is supplied.
+ */
+export const maroonThemes: { title: string; detail: string | null }[] = [
+  { title: "Resistance", detail: null },
+  { title: "Resilience", detail: null },
+  { title: "Heritage", detail: null },
+  { title: "Identity", detail: null },
 ];
 
 /* ---------------------------------- media --------------------------------- */

@@ -23,9 +23,7 @@ export function BookCard({ book, index }: { book: Book; index: number }) {
           >
             <span className="grain-overlay" aria-hidden="true" />
             <div className="flex items-center justify-between">
-              <span className="eyebrow">
-                No. {String(index + 1).padStart(2, "0")}
-              </span>
+              <span className="eyebrow">No. {String(index + 1).padStart(2, "0")}</span>
               <span className="text-[0.58rem] uppercase tracking-[0.24em] text-stone/70">
                 Cover TBC
               </span>
@@ -33,9 +31,7 @@ export function BookCard({ book, index }: { book: Book; index: number }) {
             <div>
               <div className="mb-4 h-px w-12 bg-gold" />
               <h3 className="display text-2xl text-cream">{book.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone/80">
-                {book.subtitle}
-              </p>
+              <p className="mt-3 text-sm leading-relaxed text-stone/80">{book.subtitle}</p>
             </div>
             <span className="text-[0.58rem] uppercase tracking-[0.24em] text-gold">
               Fabian Stennett
@@ -43,9 +39,7 @@ export function BookCard({ book, index }: { book: Book; index: number }) {
           </div>
         )}
       </a>
-      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-        {book.description}
-      </p>
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{book.description}</p>
       <p className="mt-3 text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground/80">
         {book.published}
       </p>
@@ -53,7 +47,7 @@ export function BookCard({ book, index }: { book: Book; index: number }) {
         href={book.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-3 inline-block text-[0.62rem] uppercase tracking-[0.22em] text-gold hover:underline"
+        className="mt-3 inline-block text-[0.62rem] uppercase tracking-[0.22em] text-gilt hover:underline"
       >
         Amazon Kindle
       </a>

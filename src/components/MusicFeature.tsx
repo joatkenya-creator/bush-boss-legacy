@@ -24,7 +24,7 @@ export function MusicFeature() {
       <div>
         <p className="eyebrow">{featuredRelease.label}</p>
         <h3 className="mt-5 text-5xl sm:text-6xl">{featuredRelease.title}</h3>
-        <p className="mt-4 text-sm uppercase tracking-[0.26em] text-gold">
+        <p className="mt-4 text-sm uppercase tracking-[0.26em] text-gilt">
           {featuredRelease.artist}
         </p>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
@@ -39,12 +39,7 @@ export function MusicFeature() {
             aria-label="Play Road Fulla Hole"
             className="flex size-14 shrink-0 items-center justify-center rounded-full bg-gold text-gold-foreground transition-transform duration-300 hover:scale-105"
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="size-5"
-              fill="currentColor"
-              aria-hidden="true"
-            >
+            <svg viewBox="0 0 24 24" className="size-5" fill="currentColor" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
             </svg>
           </a>
@@ -70,12 +65,7 @@ export function MusicFeature() {
         <ul className="mt-6 flex flex-wrap gap-3">
           {platforms.map((platform) => (
             <li key={platform.name}>
-              <ActionLink
-                href={platform.href}
-                external
-                variant="outline"
-                className="px-5 py-3"
-              >
+              <ActionLink href={platform.href} external variant="outline" className="px-5 py-3">
                 {platform.name}
               </ActionLink>
             </li>
