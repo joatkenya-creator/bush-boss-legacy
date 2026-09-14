@@ -27,6 +27,11 @@ const variants: Record<Variant, string> = {
   quiet: "px-0 py-1 text-[0.64rem] text-gold-ink hover:text-foreground",
 };
 
+/** The same classes for a non-anchor element (e.g. a dialog trigger button). */
+export function actionLinkClasses(variant: Variant = "solid", size: Size = "default") {
+  return cn(base, sizes[size], variants[variant]);
+}
+
 type CommonProps = {
   variant?: Variant;
   size?: Size;

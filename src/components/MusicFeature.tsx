@@ -1,7 +1,14 @@
 import { useState } from "react";
 
 import { Reveal, RevealImage } from "@/components/Reveal";
-import { ActionLink } from "@/components/ui/action-link";
+import { ActionLink, actionLinkClasses } from "@/components/ui/action-link";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { featuredRelease, platforms } from "@/lib/site-content";
 
 /** A deterministic, decorative waveform — not a rendering of the audio. */
@@ -93,20 +100,32 @@ export function MusicFeature() {
           </div>
         )}
 
-        <ul className="mt-6 flex flex-wrap gap-3">
-          {platforms.map((platform) => (
-            <li key={platform.name}>
-              <ActionLink href={platform.href} variant="outline" size="sm">
-                {platform.name}
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button type="button" className={actionLinkClasses("solid", "lg")}>
+                Stream / Download
+              </button>
+            </DialogTrigger>
+            <DialogContent className="sm:rounded-none">
+              <DialogTitle className="text-2xl">Choose your music service</DialogTitle>
+              <DialogDescription className="text-sm text-muted-foreground">
+                {release.title} by {release.artist}
+              </DialogDescription>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {platforms.map((platform) => (
+                  <li key={platform.name}>
+                    <ActionLink href={platform.href} variant="outline" size="sm" className="w-full">
+                      {platform.name}
+                    </ActionLink>
+                  </li>
+                ))}
+              </ul>
+              <ActionLink href={release.href} variant="quiet" className="justify-self-start">
+                See all platforms &rarr;
               </ActionLink>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-9">
-          <ActionLink href={release.href} size="lg">
-            All platforms
-          </ActionLink>
+            </DialogContent>
+          </Dialog>
         </div>
       </Reveal>
     </div>
