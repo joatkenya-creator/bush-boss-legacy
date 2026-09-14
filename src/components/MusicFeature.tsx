@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Reveal, RevealImage } from "@/components/Reveal";
 import { ActionLink } from "@/components/ui/action-link";
 import { featuredRelease, platforms } from "@/lib/site-content";
@@ -9,11 +11,12 @@ const BARS = Array.from({ length: 56 }, (_, i) => {
 });
 
 /**
- * The release feature: sleeve artwork, credits, a play affordance that opens
- * the artist's current music destination, and the platform buttons.
+ * The release feature: sleeve artwork, credits, a play button that streams the
+ * track in-page (YouTube embed), and the platform buttons.
  */
 export function MusicFeature() {
   const release = featuredRelease;
+  const [playing, setPlaying] = useState(false);
 
   return (
     <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
@@ -41,43 +44,54 @@ export function MusicFeature() {
           {release.description}
         </p>
 
-        {/* Player-style launcher */}
-        <div className="mt-9 flex items-center gap-5 border border-border p-4 sm:p-5">
-          <a
-            href={release.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex size-14 shrink-0 items-center justify-center rounded-full bg-gold text-gold-foreground transition-transform duration-300 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-          >
-            <span className="sr-only">
-              Play {release.title} by {release.artist}
-            </span>
-            <svg
-              viewBox="0 0 24 24"
-              className="size-5 translate-x-px"
-              fill="currentColor"
-              aria-hidden="true"
+        {/* Player — the embed only loads once the visitor presses play */}
+        {playing ? (
+          <div className="mt-9 aspect-video border border-border">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${release.youtubeId}?autoplay=1`}
+              title={`${release.title} by ${release.artist}`}
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+              className="size-full"
+            />
+          </div>
+        ) : (
+          <div className="mt-9 flex items-center gap-5 border border-border p-4 sm:p-5">
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              className="flex size-14 shrink-0 items-center justify-center rounded-full bg-gold text-gold-foreground transition-transform duration-300 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
             >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </a>
+              <span className="sr-only">
+                Play {release.title} by {release.artist}
+              </span>
+              <svg
+                viewBox="0 0 24 24"
+                className="size-5 translate-x-px"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
 
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium">
-              {release.title}
-              <span className="text-muted-foreground"> — {release.artist}</span>
-            </p>
-            <div className="mt-3 flex h-7 items-end gap-[3px]" aria-hidden="true">
-              {BARS.map((height, i) => (
-                <span
-                  key={i}
-                  className="w-full bg-forest"
-                  style={{ height: `${height}%`, opacity: i < 18 ? 1 : 0.28 }}
-                />
-              ))}
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-medium">
+                {release.title}
+                <span className="text-muted-foreground"> — {release.artist}</span>
+              </p>
+              <div className="mt-3 flex h-7 items-end gap-[3px]" aria-hidden="true">
+                {BARS.map((height, i) => (
+                  <span
+                    key={i}
+                    className="w-full bg-forest"
+                    style={{ height: `${height}%`, opacity: i < 18 ? 1 : 0.28 }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         <ul className="mt-6 flex flex-wrap gap-3">
           {platforms.map((platform) => (
@@ -89,16 +103,9 @@ export function MusicFeature() {
           ))}
         </ul>
 
-        {platforms.some((p) => !p.confirmed) && (
-          <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-muted-foreground/80">
-            Platform links point to the artist&rsquo;s current music post until dedicated streaming
-            URLs are confirmed.
-          </p>
-        )}
-
         <div className="mt-9">
           <ActionLink href={release.href} size="lg">
-            Stream / Download
+            All platforms
           </ActionLink>
         </div>
       </Reveal>

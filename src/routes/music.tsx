@@ -151,7 +151,7 @@ function MusicPage() {
           <SectionHeading
             label="Follow the sound"
             title="Where to listen"
-            lead={`Confirmed destinations for ${BRAND.artist}. Dimmed platforms are awaiting official profile links.`}
+            lead={`Follow ${BRAND.artist}. Dimmed platforms are awaiting official profile links.`}
           />
           <Reveal delay={140} className="lg:self-center">
             <SocialLinks />

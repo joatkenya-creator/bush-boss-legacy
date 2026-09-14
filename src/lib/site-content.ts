@@ -22,8 +22,10 @@ import roadFullaHole from "@/assets/road-fulla-hole.jpg";
  */
 
 export const LINKS = {
-  /** Current music destination supplied by the artist. */
-  music: "https://bit.ly/facebook-post-100000014054440",
+  /** Ditto smart link — lets the listener pick their preferred music service. */
+  music: "https://ditto.fm/road-fulla-hole",
+  /** The artist's Facebook post announcing the release (requires a Facebook login). */
+  facebook: "https://bit.ly/facebook-post-100000014054440",
   /** Current Amazon Kindle destination supplied by the author. */
   books: "https://bit.ly/4yZghtM",
   bookingEmail: "booking@thebushboss.com",
@@ -106,6 +108,8 @@ export type Release = {
   description: string;
   cover: string;
   href: string;
+  /** YouTube video id — plays the track in-page from the play button. */
+  youtubeId: string;
 };
 
 export const featuredRelease: Release = {
@@ -116,17 +120,25 @@ export const featuredRelease: Release = {
     "Road Fulla Hole is a fresh addition to a growing catalog that channels Maroon history, culture, resilience, and consciousness into music.",
   cover: roadFullaHole,
   href: LINKS.music,
+  youtubeId: "1fxCRBAdugw",
 };
 
-/**
- * Streaming destinations. Every entry currently points at the one music link
- * the artist supplied — replace each `href` as official platform URLs are
- * confirmed, and delete any platform that will not be used.
- */
-export const platforms: { name: string; href: string; confirmed: boolean }[] = [
-  { name: "Stream", href: LINKS.music, confirmed: true },
-  { name: "Download", href: LINKS.music, confirmed: false },
-  { name: "YouTube", href: LINKS.music, confirmed: false },
+/** Streaming destinations for the featured release, as resolved from the Ditto smart link. */
+export const platforms: { name: string; href: string }[] = [
+  { name: "Spotify", href: "https://open.spotify.com/track/66xfDGrerq1SuaFASens09" },
+  {
+    name: "Apple Music",
+    href: "https://music.apple.com/album/road-fulla-hole/6794914821?i=6794914827",
+  },
+  { name: "YouTube", href: "https://music.youtube.com/watch?v=1fxCRBAdugw" },
+  { name: "SoundCloud", href: "https://soundcloud.com/gangunjahnevadye-music/road-fulla-hole" },
+  { name: "Deezer", href: "https://www.deezer.com/track/4178331742" },
+  { name: "TIDAL", href: "https://tidal.com/track/546610525" },
+  { name: "Amazon Music", href: "https://music.amazon.com/tracks/B0HBNJ1ZHN" },
+  {
+    name: "Audiomack",
+    href: "https://audiomack.com/gangunjah-nevadye-6a665cf935fef/song/road-fulla-hole",
+  },
 ];
 
 /** Additional catalogue entries. Add releases as they are confirmed. */
@@ -387,7 +399,7 @@ export const events: EventItem[] = [];
 /* -------------------------------- socials -------------------------------- */
 
 /** Only verified destinations are listed. Add platforms as links are confirmed. */
-export const socials = [{ name: "Facebook", href: LINKS.music }];
+export const socials = [{ name: "Facebook", href: LINKS.facebook }];
 
 /** Named so visitors know the channels exist, without fabricating a URL. */
 export const pendingSocials = ["Instagram", "YouTube", "Spotify", "TikTok"];
