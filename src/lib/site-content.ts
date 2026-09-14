@@ -1,3 +1,9 @@
+import bookBlazingTheTrail from "@/assets/book-blazing-the-trail.jpg";
+import bookMaroonEulogies1 from "@/assets/book-maroon-eulogies-1.jpg";
+import bookMaroonPoeticHistory from "@/assets/book-maroon-poetic-history.jpg";
+import bookMaroonsPavingTheWay from "@/assets/book-maroons-paving-the-way.jpg";
+import bookModernMaroons from "@/assets/book-modern-maroons.jpg";
+import bookTheyCarvedThePathways from "@/assets/book-they-carved-the-pathways.jpg";
 import roadFullaHole from "@/assets/road-fulla-hole.jpg";
 
 /**
@@ -134,62 +140,71 @@ export type Book = {
   description: string;
   published: string;
   href: string;
-  /** Cover artwork — add an imported asset once official covers are supplied. */
+  /** Cover artwork — the official Kindle cover from the Amazon listing. */
   cover?: string;
 };
 
 /**
- * Placeholder catalogue. The author has 6+ titles on Amazon Kindle; titles and
- * descriptions must be replaced with the verified listings before launch.
+ * Catalogue taken from the author's Amazon page
+ * (amazon.com/stores/Fabian-Stennett/author/B0GGL3PGBF), newest first.
+ * Titles, dates and covers are the Kindle listings; descriptions are
+ * condensed from the author's own blurbs. Paperback and hardcover editions
+ * also exist for each title.
  */
 export const books: Book[] = [
   {
-    title: "Title to be confirmed — I",
-    subtitle: "Maroon heritage",
+    title: "Blazing the Trail",
+    subtitle: "Rise of the Fireborn",
     description:
-      "Placeholder entry. Replace with the verified title, description and Amazon Kindle link.",
-    published: "Publication date to be confirmed",
-    href: LINKS.books,
+      "A two-part work: a nonfiction tribute to Jamaica's trailblazers, from Queen Nanny to Marcus Garvey, followed by a near-future novel in which Canaan “Blaze” Wray, raised in the shadow of the Ciboney Maroons, builds a grassroots nation within a nation.",
+    published: "18 February 2026",
+    href: "https://www.amazon.com/dp/B0GNZPVYTK",
+    cover: bookBlazingTheTrail,
   },
   {
-    title: "Title to be confirmed — II",
-    subtitle: "Jamaican history",
+    title: "They Carved the Pathways",
+    subtitle: "Chronicles of Popular Jamaican Icons",
     description:
-      "Placeholder entry. Replace with the verified title, description and Amazon Kindle link.",
-    published: "Publication date to be confirmed",
-    href: LINKS.books,
+      "A tribute to the men and women who built Jamaican identity from the ground up — Maroon warriors of the 1700s, reggae legends Junior Byles, Ken Boothe and Fred Locks, boxer Mike McCallum, Grace Jones, Miss Lou, and the educators and community builders the textbooks leave out.",
+    published: "10 January 2026",
+    href: "https://www.amazon.com/dp/B0GG5R2GLC",
+    cover: bookTheyCarvedThePathways,
   },
   {
-    title: "Title to be confirmed — III",
-    subtitle: "Culture & identity",
+    title: "Maroons Paving the Way",
+    subtitle: "The True Way Paver",
     description:
-      "Placeholder entry. Replace with the verified title, description and Amazon Kindle link.",
-    published: "Publication date to be confirmed",
-    href: LINKS.books,
+      "Warriors, healers and leaders who defied colonial rule — Samuel Sharpe, Marcus Garvey, Queen Nanny and the Ciboney Maroons — alongside the roots of Maroon culture in food, herbs and medicine, told through poetry, lectures and prose.",
+    published: "13 August 2025",
+    href: "https://www.amazon.com/dp/B0FM8VW8WN",
+    cover: bookMaroonsPavingTheWay,
   },
   {
-    title: "Title to be confirmed — IV",
-    subtitle: "Resilience",
+    title: "Maroon Poetic History",
+    subtitle: "A Collection of Proses and Poems",
     description:
-      "Placeholder entry. Replace with the verified title, description and Amazon Kindle link.",
-    published: "Publication date to be confirmed",
-    href: LINKS.books,
+      "Seven chapters of scholarly prose and verse tracing the arc of the Jamaican Maroon story, from the Ciboney Maroons to Queen Nanny, Leonard Howell and Quao, and on to icons of Black excellence from Merlene Ottey to Sizzla Kalonji.",
+    published: "10 August 2025",
+    href: "https://www.amazon.com/dp/B0FLWHPLSL",
+    cover: bookMaroonPoeticHistory,
   },
   {
-    title: "Title to be confirmed — V",
-    subtitle: "Consciousness",
+    title: "Modern Maroons Jamaica",
+    subtitle: "Maroon Book of Eulogies, Part Two",
     description:
-      "Placeholder entry. Replace with the verified title, description and Amazon Kindle link.",
-    published: "Publication date to be confirmed",
-    href: LINKS.books,
+      "Eulogies, ballads and historical narrative honouring Queen Nanny, Captain Cudjoe, Three Finger Jack and Samuel Sharpe alongside the community figures of Trelawny Town and Tangle River — a living archive of the Ciboney Maroons.",
+    published: "1 March 2025",
+    href: "https://www.amazon.com/dp/B0DXKVM2MR",
+    cover: bookModernMaroons,
   },
   {
-    title: "Title to be confirmed — VI",
-    subtitle: "Lived experience",
+    title: "Maroon Book of Eulogies, Part One",
+    subtitle: "A History of the Ciboney First Nation Maroon People of Black River Road",
     description:
-      "Placeholder entry. Replace with the verified title, description and Amazon Kindle link.",
-    published: "Publication date to be confirmed",
-    href: LINKS.books,
+      "From Tangle River, St. James, where the Ciboney Maroons defied slavery, 44 lives are resurrected through poetry and eulogy — elders and freedom fighters alongside reggae legends Brent Dowe, Cocoa Tea, Phyllis Dillon and Joseph Hill. Ciboney Maroon history documented for the first time.",
+    published: "28 February 2025",
+    href: "https://www.amazon.com/dp/B0DX53PXCP",
+    cover: bookMaroonEulogies1,
   },
 ];
 

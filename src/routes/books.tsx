@@ -89,7 +89,7 @@ function BooksPage() {
 
         <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <ActionLink href={LINKS.books} size="lg">
-            Explore All Books
+            Browse on Amazon
           </ActionLink>
           <ActionLink href={LINKS.speakerInfo} variant="outline" size="lg">
             Enquire About Readings

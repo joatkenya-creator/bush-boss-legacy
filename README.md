@@ -66,8 +66,9 @@ The content model enforces this rather than relying on good intentions:
   section prints "To be supplied by Fabian Stennett." in its place.
 - `mediaItems` and `events` are empty arrays. Their sections render a designed
   empty state naming what will go there.
-- Placeholder book titles contain the words "to be confirmed", which keeps them
-  out of the `Book` structured data until they are replaced.
+- A book whose title contains the words "to be confirmed" is kept out of the
+  `Book` structured data until it is replaced. (All six current titles are the
+  verified Kindle listings.)
 - Social platforms without a confirmed URL are shown dimmed and unlinked rather
   than pointed at a guessed profile.
 
@@ -98,8 +99,10 @@ sitemap line to [`public/robots.txt`](public/robots.txt).
       registered — every booking enquiry, the site's primary conversion, would
       bounce. This must be a working address before the site goes live.
 - [ ] Set `VITE_SITE_URL` once the domain is registered (see above).
-- [ ] Replace the six placeholder `books` entries with verified titles, covers,
-      descriptions, publication dates and Amazon links.
+- [x] Replace the six placeholder `books` entries with verified titles, covers,
+      descriptions, publication dates and Amazon links. (Done from the Amazon
+      author page — descriptions are condensed from the author's blurbs; have
+      Fabian Stennett approve the wording.)
 - [ ] Replace the stock photography in `src/assets/` with authentic images of
       The Bush Boss, and update each `alt` where the subject changes.
 - [ ] Add confirmed streaming URLs to `platforms` (they all currently point at

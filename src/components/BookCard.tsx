@@ -2,9 +2,9 @@ import { BRAND, type Book } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
 /**
- * A single title. Where an official cover has not been supplied, a typographic
- * sleeve stands in — clearly marked, and replaced by adding `cover` to the
- * book entry in site-content.ts.
+ * A single title. Kindle covers are square, so the frame is too. Where a
+ * cover has not been supplied, a typographic sleeve stands in — clearly
+ * marked, and replaced by adding `cover` to the book entry in site-content.ts.
  */
 export function BookCard({
   book,
@@ -29,15 +29,15 @@ export function BookCard({
           <img
             src={book.cover}
             alt={`Cover of ${book.title} by ${BRAND.author}`}
-            width={800}
-            height={1200}
+            width={1024}
+            height={1024}
             loading="lazy"
             decoding="async"
-            className="aspect-[2/3] w-full border border-border object-cover transition-transform duration-700 ease-[var(--ease-cinematic)] group-hover:-translate-y-2"
+            className="aspect-square w-full border border-border object-cover transition-transform duration-700 ease-[var(--ease-cinematic)] group-hover:-translate-y-2"
           />
         ) : (
           <div
-            className="on-dark grain relative flex aspect-[2/3] flex-col justify-between overflow-hidden border border-border p-6 transition-transform duration-700 ease-[var(--ease-cinematic)] group-hover:-translate-y-2"
+            className="on-dark grain relative flex aspect-square flex-col justify-between overflow-hidden border border-border p-6 transition-transform duration-700 ease-[var(--ease-cinematic)] group-hover:-translate-y-2"
             style={{ background: "var(--gradient-earth)" }}
           >
             <span className="grain-overlay" aria-hidden="true" />
