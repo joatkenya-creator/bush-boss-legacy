@@ -9,8 +9,8 @@ export function SiteFooter() {
     <footer className="on-dark grain relative isolate border-t border-border">
       <span className="grain-overlay" aria-hidden="true" />
 
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[1.25fr_0.75fr_1.1fr]">
-        <div>
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-5 py-14 sm:grid-cols-[1.25fr_0.75fr_1.1fr] sm:gap-14 sm:px-8 sm:py-24">
+        <div className="col-span-2 sm:col-span-1">
           <p className="display text-3xl uppercase tracking-[0.08em] sm:text-4xl">{BRAND.name}</p>
           <p className="mt-4 text-sm italic text-gold-ink/90">{BRAND.tagline}</p>
           <p className="mt-6 max-w-xs text-pretty text-sm leading-relaxed text-muted-foreground">
@@ -54,7 +54,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-[0.62rem] uppercase tracking-[0.2em] text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-6 text-[0.62rem] uppercase tracking-[0.2em] text-muted-foreground/80 sm:px-8">
           <p>
             &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>

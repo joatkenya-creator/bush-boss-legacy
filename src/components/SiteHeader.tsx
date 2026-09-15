@@ -22,7 +22,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Close the overlay on navigation. */
+  /* Close the overlay on navigation (and on same-page taps, via onClick). */
   useEffect(() => setOpen(false), [pathname]);
 
   /* Lock the page behind the full-screen menu. */
@@ -47,7 +47,10 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "on-dark fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
+        /* `backdrop-filter` is deliberately NOT transitioned: while it animates
+           the header becomes the containing block for the `fixed` menu below,
+           which clips the overlay to the bar for half a second on open. */
+        "on-dark fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-500",
         scrolled && !open
           ? "border-b border-border/60 bg-ink/85 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
@@ -123,6 +126,7 @@ export function SiteHeader() {
               <li key={link.label} className="border-b border-border/60">
                 <Link
                   to={link.to}
+                  onClick={() => setOpen(false)}
                   className="flex items-baseline gap-5 py-5 text-foreground transition-colors hover:text-gold-ink"
                 >
                   <span className="text-[0.6rem] tracking-[0.24em] text-gold-ink">
