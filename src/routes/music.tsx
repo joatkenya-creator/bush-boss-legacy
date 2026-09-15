@@ -19,9 +19,9 @@ import { breadcrumbSchema, musicGroupSchema } from "@/lib/structured-data";
 export const Route = createFileRoute("/music")({
   head: () =>
     seo({
-      title: "Music | Gangunjah Nevadye",
+      title: "Gangunjah Nevadye | Jamaican Reggae Music & Conscious Rap",
       description:
-        "Reggae and conscious music from Gangunjah Nevadye — the musical voice of The Bush Boss, channelling Maroon history, culture, resilience and consciousness into sound. Featuring Road Fulla Hole.",
+        "Jamaican reggae music and conscious rap from Gangunjah Nevadye, the musical voice of The Bush Boss — Jamaican Maroon history, culture and resilience in sound. Featuring Road Fulla Hole.",
       path: "/music",
       image: roadFullaHole,
       imageAlt: "Sleeve artwork for Road Fulla Hole by Gangunjah Nevadye",
@@ -32,15 +32,15 @@ export const Route = createFileRoute("/music")({
 const THEMES = [
   {
     title: "History in the rhythm",
-    body: "Maroon history is not background material in these songs. It is the subject — carried by the melody so it travels further than a lecture ever could.",
+    body: "Jamaican Maroon history is not background material in these songs. It is the subject — carried by the melody so it travels further than a lecture ever could.",
   },
   {
-    title: "Conscious writing",
-    body: "Lyrics written to be understood and argued with: identity, resilience, community and the pressure of the present day.",
+    title: "Conscious rap, conscious writing",
+    body: "Lyrics written to be understood and argued with: identity, resilience, community and the pressure of the present day on Jamaican culture.",
   },
   {
     title: "Roots and now",
-    body: "Reggae's traditions held alongside contemporary production, so the music sits comfortably in a modern playlist without softening what it says.",
+    body: "Reggae's traditions and the wider lineage of Jamaican music held alongside contemporary production, so the songs sit comfortably in a modern playlist without softening what they say.",
   },
 ];
 
@@ -50,7 +50,7 @@ function MusicPage() {
       <PageHero
         eyebrow="01 — Music"
         title="Gangunjah Nevadye"
-        lead="Where history finds its rhythm. Through reggae and conscious music, Gangunjah Nevadye channels Maroon history, culture, resilience, and consciousness into sound."
+        lead="Where history finds its rhythm. Through reggae music and conscious rap, Gangunjah Nevadye channels Jamaican Maroon history, culture, resilience, and consciousness into sound."
         image={musicImg}
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -18,9 +18,9 @@ import { bookListSchema, breadcrumbSchema } from "@/lib/structured-data";
 export const Route = createFileRoute("/books")({
   head: () =>
     seo({
-      title: "The Books | Fabian Stennett",
+      title: "Books on Jamaican History & the Maroons | Fabian Stennett",
       description:
-        "Books by Fabian Stennett — the author behind The Bush Boss. Six and more titles on Amazon Kindle exploring the Maroon story, Jamaican heritage, identity, resilience and lived experience.",
+        "Books by Fabian Stennett, the author behind The Bush Boss. Kindle titles on the Jamaican Maroons, Jamaican history and culture, identity, resilience and lived experience.",
       path: "/books",
       image: booksImg,
       imageAlt: "Books and manuscripts on a writing desk",
@@ -46,7 +46,7 @@ function BooksPage() {
       <PageHero
         eyebrow="02 — Literature"
         title="The books"
-        lead="Where history becomes story. Through books and storytelling, Fabian Stennett explores the Maroon story, Jamaican heritage, identity, resilience, and lived experience."
+        lead="Where history becomes story. Through books and storytelling, Fabian Stennett explores the Jamaican Maroons, Jamaican history and culture, identity, resilience, and lived experience."
         image={booksImg}
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

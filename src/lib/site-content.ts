@@ -41,9 +41,20 @@ export const BRAND = {
   artist: "Gangunjah Nevadye",
   mission: "Make the Maroon story impossible to ignore.",
   intro:
-    "Known as Gangunjah Nevadye on the mic and Fabian Stennett on the page and the podium, The Bush Boss uses music, literature, and powerful storytelling to honor and amplify the Maroon story.",
+    "Known as Gangunjah Nevadye on the mic and Fabian Stennett on the page and the podium, The Bush Boss uses reggae music, conscious rap, literature, and powerful storytelling to honor and amplify the story of the Jamaican Maroons.",
   manifesto:
-    "The Maroon story is a story of resistance, resilience, identity, culture, freedom, and survival. The Bush Boss brings that story into the present through music, literature, and speaking.",
+    "The story of the Jamaican Maroons is a story of resistance, resilience, identity, culture, freedom, and survival — a living cultural movement, not a closed chapter of Jamaican history. The Bush Boss brings that story into the present through music, literature, and speaking.",
+  /** Search themes the whole site is built around — used in structured data only. */
+  keywords: [
+    "Jamaican music",
+    "Reggae music",
+    "Conscious rap",
+    "Jamaican culture",
+    "Jamaican Maroons",
+    "Cultural movement",
+    "Jamaican history",
+    "Jamaican Indigenous people",
+  ],
 };
 
 /* ---------------------------------- nav ---------------------------------- */
@@ -76,7 +87,7 @@ export const gifts: Gift[] = [
     name: "Gangunjah Nevadye",
     subheading: "Where history finds its rhythm.",
     description:
-      "Through reggae and conscious music, Gangunjah Nevadye channels Maroon history, culture, resilience, and consciousness into sound.",
+      "Through reggae music and conscious rap, Gangunjah Nevadye channels Jamaican Maroon history, culture, resilience, and consciousness into sound.",
     cta: { label: "Listen to the Music", to: "/music" },
   },
   {
@@ -85,7 +96,7 @@ export const gifts: Gift[] = [
     name: "Fabian Stennett",
     subheading: "Where history becomes story.",
     description:
-      "Through books and storytelling, Fabian Stennett explores the Maroon story, Jamaican heritage, identity, resilience, and lived experience.",
+      "Through books and storytelling, Fabian Stennett explores the Maroon story, Jamaican history and culture, identity, resilience, and lived experience.",
     cta: { label: "Explore the Books", to: "/books" },
   },
   {
@@ -117,7 +128,7 @@ export const featuredRelease: Release = {
   artist: "Gangunjah Nevadye",
   label: "The latest release from Gangunjah Nevadye",
   description:
-    "Road Fulla Hole is a fresh addition to a growing catalog that channels Maroon history, culture, resilience, and consciousness into music.",
+    "Road Fulla Hole is a fresh addition to a growing catalog of Jamaican music that channels Maroon history, culture, resilience, and consciousness into reggae and conscious rap.",
   cover: roadFullaHole,
   href: LINKS.music,
   youtubeId: "1fxCRBAdugw",
@@ -350,12 +361,12 @@ export const maroonTopics = [
   "Jamaican Maroons",
   "Maroon heritage",
   "Jamaican history",
+  "Jamaican culture",
+  "Jamaican Indigenous people",
   "Cultural identity",
-  "Indigenous history",
   "Resistance",
   "Resilience",
-  "Community",
-  "Music and cultural movements",
+  "Music as a cultural movement",
 ];
 
 /* ---------------------------------- media -------------------------------- */

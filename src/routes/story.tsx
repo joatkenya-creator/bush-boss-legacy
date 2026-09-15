@@ -18,9 +18,9 @@ import { breadcrumbSchema, personSchema } from "@/lib/structured-data";
 export const Route = createFileRoute("/story")({
   head: () =>
     seo({
-      title: "The Story | The Bush Boss",
+      title: "The Story | The Bush Boss, Jamaican Maroon Culture & Music",
       description:
-        "One man, three names, one mission. How Fabian Stennett, Gangunjah Nevadye and The Bush Boss came to be three expressions of the same work: amplifying Jamaican Maroon heritage.",
+        "One man, three names, one mission. How Fabian Stennett, Gangunjah Nevadye and The Bush Boss became three expressions of one cultural movement: amplifying the Jamaican Maroons.",
       path: "/story",
       image: heroImg,
       imageAlt: "The Bush Boss in the Jamaican hills",

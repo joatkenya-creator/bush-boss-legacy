@@ -27,9 +27,9 @@ import { musicGroupSchema, speakingServiceSchema } from "@/lib/structured-data";
 export const Route = createFileRoute("/")({
   head: () =>
     seo({
-      title: "The Bush Boss | One Man. Three Gifts. One Mission.",
+      title: "The Bush Boss | Jamaican Reggae, Conscious Rap & Maroons",
       description:
-        "The Bush Boss — Fabian Stennett, known in music as Gangunjah Nevadye. Reggae and conscious music, books on Amazon Kindle, and cultural speaking amplifying Jamaican Maroon heritage.",
+        "Fabian Stennett, known in music as Gangunjah Nevadye. Jamaican reggae music and conscious rap, books on Jamaican history, and speaking that carries the Jamaican Maroons' cultural movement.",
       path: "/",
       image: heroImg,
       imageAlt: "The Bush Boss in the Jamaican hills at first light",
@@ -66,7 +66,7 @@ function HomeHero() {
       <div className="absolute inset-0 -z-10">
         <img
           src={heroImg}
-          alt="The Bush Boss standing in the misty Jamaican hills at first light"
+          alt="The Bush Boss, Jamaican reggae musician and author, standing in the misty Maroon hills of Jamaica at first light"
           width={1600}
           height={1200}
           fetchPriority="high"

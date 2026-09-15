@@ -18,9 +18,9 @@ import { breadcrumbSchema, eventSchema, speakingServiceSchema } from "@/lib/stru
 export const Route = createFileRoute("/speaking")({
   head: () =>
     seo({
-      title: "Book The Bush Boss | Cultural & Motivational Speaker",
+      title: "Jamaican Culture & History Speaker | Book The Bush Boss",
       description:
-        "Book The Bush Boss to speak on Jamaican history, Maroon heritage, culture and identity, motivation, music and consciousness, and youth empowerment — for schools, universities, conferences, festivals and cultural events.",
+        "Book The Bush Boss to speak on Jamaican history, the Jamaican Maroons, culture and identity, reggae and conscious music, and youth empowerment — for schools, universities, conferences and festivals.",
       path: "/speaking",
       image: speakingImg,
       imageAlt: "The Bush Boss speaking on a darkened stage",

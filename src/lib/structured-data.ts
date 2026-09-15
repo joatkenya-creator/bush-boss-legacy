@@ -30,6 +30,7 @@ export function websiteSchema() {
     name: BRAND.name,
     alternateName: [BRAND.author, BRAND.artist],
     description: BRAND.intro,
+    keywords: BRAND.keywords.join(", "),
     inLanguage: "en",
     publisher: { "@id": personId() },
   };
@@ -46,15 +47,7 @@ export function personSchema() {
     description: BRAND.intro,
     jobTitle: ["Musician", "Author", "Speaker"],
     nationality: { "@type": "Country", name: "Jamaica" },
-    knowsAbout: [
-      "Jamaican Maroons",
-      "Maroon heritage",
-      "Jamaican history",
-      "Jamaican culture",
-      "Reggae music",
-      "Conscious music",
-      "Cultural identity",
-    ],
+    knowsAbout: [...BRAND.keywords, "Maroon heritage", "Conscious music", "Cultural identity"],
     sameAs: socials.map((s) => s.href),
   };
 }
@@ -66,7 +59,7 @@ export function musicGroupSchema() {
     name: BRAND.artist,
     alternateName: BRAND.name,
     url: absoluteUrl("/music"),
-    genre: ["Reggae", "Conscious music"],
+    genre: ["Reggae", "Conscious rap", "Conscious music", "Jamaican music"],
     member: { "@id": personId() },
     track: {
       "@type": "MusicRecording",

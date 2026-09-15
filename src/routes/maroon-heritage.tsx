@@ -17,9 +17,9 @@ import { breadcrumbSchema } from "@/lib/structured-data";
 export const Route = createFileRoute("/maroon-heritage")({
   head: () =>
     seo({
-      title: "Maroon Heritage | The Bush Boss",
+      title: "Jamaican Maroons: History & Culture | The Bush Boss",
       description:
-        "Jamaican Maroon heritage told through music, literature and speaking. An archive built to hold verified history — resistance, resilience, heritage and identity — carried forward by The Bush Boss.",
+        "The Jamaican Maroons told through reggae music, books and speaking. Jamaican history, culture and Indigenous heritage — resistance, resilience and identity — carried forward by The Bush Boss.",
       path: "/maroon-heritage",
       image: maroonImg,
       imageAlt: "Mist over the limestone hills of Jamaica's Cockpit Country",
@@ -33,7 +33,7 @@ function MaroonHeritagePage() {
       <PageHero
         eyebrow="Maroon Heritage"
         title="The Maroon story"
-        lead="The Maroon story is more than a chapter in Jamaican history. It is a living legacy."
+        lead="The Jamaican Maroons are more than a chapter in Jamaican history. Their culture is a living legacy and a cultural movement still moving today."
         image={maroonImg}
         imageAlt="Mist rising over Jamaica's limestone hill country"
       >

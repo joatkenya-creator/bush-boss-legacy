@@ -18,9 +18,9 @@ import { breadcrumbSchema, eventSchema } from "@/lib/structured-data";
 export const Route = createFileRoute("/media")({
   head: () =>
     seo({
-      title: "Media & Press | The Bush Boss",
+      title: "Media & Press | The Bush Boss on Jamaican Music & Culture",
       description:
-        "Interviews, podcasts, radio, television, articles, events and music videos featuring The Bush Boss — Fabian Stennett and Gangunjah Nevadye. Press enquiries welcome.",
+        "Interviews, podcasts, radio, articles and music videos on Jamaican music, culture and Maroon history featuring The Bush Boss — Fabian Stennett and Gangunjah Nevadye. Press enquiries welcome.",
       path: "/media",
       image: mediaImg,
       imageAlt: "A microphone and camera set up for an interview",

@@ -82,12 +82,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#171714" },
       {
-        title: `${BRAND.name} | Musician, Author & Cultural Speaker`,
+        title: `${BRAND.name} | Jamaican Music, Maroon Culture & History`,
       },
       {
         name: "description",
         content:
-          "The Bush Boss — one man, three gifts, one mission. Music, books and speaking amplifying the Jamaican Maroon story.",
+          "The Bush Boss — Jamaican reggae music and conscious rap, books on Jamaican history, and cultural speaking amplifying the Jamaican Maroons.",
       },
       { name: "author", content: BRAND.author },
       { name: "robots", content: "index, follow, max-image-preview:large" },
