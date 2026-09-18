@@ -151,10 +151,20 @@ function MusicPage() {
           <SectionHeading
             label="Follow the sound"
             title="Where to listen"
-            lead={`Follow ${BRAND.artist}. Dimmed platforms are awaiting official profile links.`}
+            lead={`Follow ${BRAND.artist} across every platform.`}
           />
           <Reveal delay={140} className="lg:self-center">
             <SocialLinks />
+            <iframe
+              src={`https://open.spotify.com/embed/artist/${LINKS.spotifyArtistId}?utm_source=generator`}
+              title={`${BRAND.artist} on Spotify`}
+              width="100%"
+              height={352}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              className="mt-8 rounded-xl border-0"
+            />
           </Reveal>
         </div>
       </Section>

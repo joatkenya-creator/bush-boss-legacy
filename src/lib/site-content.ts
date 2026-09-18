@@ -26,6 +26,8 @@ export const LINKS = {
   music: "https://ditto.fm/road-fulla-hole",
   /** The artist's Facebook post announcing the release (requires a Facebook login). */
   facebook: "https://bit.ly/facebook-post-100000014054440",
+  /** Spotify artist profile — the ID also drives the embedded player on the music page. */
+  spotifyArtistId: "40NVJopqdqNZjAOG6ZVlhy",
   /** Current Amazon Kindle destination supplied by the author. */
   books: "https://bit.ly/4yZghtM",
   bookingEmail: "booking@thebushboss.com",
@@ -410,7 +412,17 @@ export const events: EventItem[] = [];
 /* -------------------------------- socials -------------------------------- */
 
 /** Only verified destinations are listed. Add platforms as links are confirmed. */
-export const socials = [{ name: "Facebook", href: LINKS.facebook }];
+export const socials = [
+  { name: "Facebook", href: "https://www.facebook.com/gangunjah" },
+  /** Handle taken from the artist's Instagram QR card: @gangunjah_nevadye */
+  { name: "Instagram", href: "https://www.instagram.com/gangunjah_nevadye/" },
+  { name: "TikTok", href: "https://vm.tiktok.com/ZS9STNWHq82AX-X4NCC/" },
+  { name: "YouTube", href: "https://www.youtube.com/@FabianStennett" },
+  {
+    name: "Spotify",
+    href: `https://open.spotify.com/artist/${LINKS.spotifyArtistId}?si=8RfqJj1URF-2o8OBtREQxA`,
+  },
+];
 
 /** Named so visitors know the channels exist, without fabricating a URL. */
-export const pendingSocials = ["Instagram", "YouTube", "Spotify", "TikTok"];
+export const pendingSocials: string[] = [];
