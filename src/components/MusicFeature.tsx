@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Reveal, RevealImage } from "@/components/Reveal";
+import { Glyph } from "@/components/SocialLinks";
 import { ActionLink, actionLinkClasses } from "@/components/ui/action-link";
 import {
   Dialog,
@@ -116,6 +117,7 @@ export function MusicFeature() {
                 {platforms.map((platform) => (
                   <li key={platform.name}>
                     <ActionLink href={platform.href} variant="outline" size="sm" className="w-full">
+                      <Glyph name={platform.name} />
                       {platform.name}
                     </ActionLink>
                   </li>
