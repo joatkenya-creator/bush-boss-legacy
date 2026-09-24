@@ -41,7 +41,7 @@ export function GiftChapter({
           width={1408}
           height={1760}
           sizes="(min-width: 1024px) 58vw, 100vw"
-          className="aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/5]"
+          className="aspect-[4/5] sm:aspect-[3/2] lg:aspect-square"
         />
         <span
           aria-hidden="true"
